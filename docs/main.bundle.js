@@ -16,7 +16,7 @@ webpackEmptyAsyncContext.id = "./src/$$_gendir lazy recursive";
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\r\n"
+module.exports = "<router-outlet></router-outlet>\n"
 
 /***/ }),
 
@@ -79,12 +79,14 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__landing_page_landing_page_module__ = __webpack_require__("./src/app/landing-page/landing-page.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__wi_page_wi_page_module__ = __webpack_require__("./src/app/wi-page/wi-page.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sewing_page_sewing_page_module__ = __webpack_require__("./src/app/sewing-page/sewing-page.module.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -106,6 +108,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_5__wi_page_wi_page_module__["a" /* WiPageModule */],
             __WEBPACK_IMPORTED_MODULE_4__landing_page_landing_page_module__["a" /* LandingPageModule */],
+            __WEBPACK_IMPORTED_MODULE_6__sewing_page_sewing_page_module__["a" /* SewingPageModule */],
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
@@ -120,16 +123,29 @@ AppModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmiProcessType; });
-var EmiProcessType;
-(function (EmiProcessType) {
-    EmiProcessType[EmiProcessType["Cutting"] = 0] = "Cutting";
-    EmiProcessType[EmiProcessType["Embroidery"] = 1] = "Embroidery";
-    EmiProcessType[EmiProcessType["Washing"] = 2] = "Washing";
-    EmiProcessType[EmiProcessType["Print"] = 3] = "Print";
-    EmiProcessType[EmiProcessType["Sewing"] = 4] = "Sewing";
-    EmiProcessType[EmiProcessType["Finishing"] = 5] = "Finishing";
-})(EmiProcessType || (EmiProcessType = {}));
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseWidget; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__info_widget_info_widget_component__ = __webpack_require__("./src/app/landing-page/info-widget/info-widget.component.ts");
+
+var BaseWidget = (function () {
+    function BaseWidget(dialog) {
+        this.dialog = dialog;
+    }
+    BaseWidget.prototype.showMore = function () {
+        console.log(this.data);
+        var dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_0__info_widget_info_widget_component__["a" /* InfoWidgetComponent */], {
+            width: '80%',
+            height: '80%',
+        });
+        dialogRef.componentInstance.data = this.data;
+        // dialogRef.componentInstance.dialogRef = dialogRef;
+        dialogRef.afterClosed().subscribe(function (result) {
+            // console.log('The dialog was closed');
+            // this.animal = result;
+        });
+    };
+    return BaseWidget;
+}());
+
 //# sourceMappingURL=base-widget.js.map
 
 /***/ }),
@@ -137,7 +153,7 @@ var EmiProcessType;
 /***/ "./src/app/landing-page/cutting-process-widget/cutting-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Cutting Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            Broken Yarn risk 100% in White color\r\n        </div>\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            100% PI focus to inspec tion broken yarn at arm hole and side seam parts\r\n        </div>\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">1) This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n</div>\r\n</div>"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <div class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2, .cls-3 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-2, .cls-3, .cls-4 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-3 {\r\n          stroke-dasharray: 0.92 3.67;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-5 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-5, .cls-6 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-6 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <path class=\"cls-2\"\r\n            d=\"M76.53,85.55A20.57,20.57,0,1,0,56,106.13a15.07,15.07,0,0,0,8.23-2.06l12.34,12.34L64.19,128.76A15.07,15.07,0,0,0,56,126.7a20.58,20.58,0,1,0,20.57,20.58,15.1,15.1,0,0,0-2-8.23L86.83,126.7s24.24,31.13,36,36c4.75,2,20.58,0,20.58,0L74.49,93.78a15.1,15.1,0,0,0,2-8.23M56,95.84A10.28,10.28,0,1,1,66.25,85.55,10.32,10.32,0,0,1,56,95.84m0,61.72a10.28,10.28,0,1,1,10.28-10.28A10.32,10.32,0,0,1,56,157.56M143.4,70.12m-55.48,46.2a2.45,2.45,0,1,1-2.45-2.45A2.45,2.45,0,0,1,87.92,116.33Z\"/>\r\n      <polyline class=\"cls-2\"\r\n                points=\"109.12 188.65 109.12 120.09 156.08 116.33 156.08 116.41 109.12 112.66 109.12 44.09\"/>\r\n      <line class=\"cls-2\" x1=\"160.97\" y1=\"116.41\" x2=\"161.47\" y2=\"116.41\"/>\r\n      <line class=\"cls-3\" x1=\"165.14\" y1=\"116.41\" x2=\"181.65\" y2=\"116.41\"/>\r\n      <line class=\"cls-2\" x1=\"183.49\" y1=\"116.41\" x2=\"183.99\" y2=\"116.41\"/>\r\n      <path class=\"cls-4\" d=\"M143.4,70.12s-15.82-2-20.58,0C112.74,74.3,92,101,92,101l10.29,10.28Z\"/>\r\n      <text class=\"cls-5\" transform=\"translate(35.63 246.21)\">Cutting Info</text>\r\n      <path class=\"cls-6\"\r\n            d=\"M320,50.09,289.89,20a1.81,1.81,0,0,1,1.28-3.09h30.08a1.81,1.81,0,0,1,1.81,1.81V48.82A1.81,1.81,0,0,1,320,50.09Z\"/>\r\n    </svg>\r\n  </div>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -149,7 +165,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -166,6 +182,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CuttingProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -177,42 +204,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var CuttingProcessWidgetComponent = (function () {
-    function CuttingProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Cutting;
-        // this.y = 245;
-        // this.x = 305;
+
+var CuttingProcessWidgetComponent = (function (_super) {
+    __extends(CuttingProcessWidgetComponent, _super);
+    function CuttingProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     CuttingProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return CuttingProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], CuttingProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], CuttingProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], CuttingProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], CuttingProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], CuttingProcessWidgetComponent.prototype, "data", void 0);
 CuttingProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-cutting-process-widget',
         template: __webpack_require__("./src/app/landing-page/cutting-process-widget/cutting-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/cutting-process-widget/cutting-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], CuttingProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=cutting-process-widget.component.js.map
 
 /***/ }),
@@ -220,7 +237,7 @@ CuttingProcessWidgetComponent = __decorate([
 /***/ "./src/app/landing-page/embroidery-process-widget/embroidery-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Embroidery Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <div class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-6 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-3, .cls-4, .cls-5 {\r\n          stroke: #fff;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-3, .cls-5 {\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #93c3f1;\r\n          stroke-miterlimit: 10;\r\n        }\r\n\r\n        .cls-5 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-6 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(35.63 246.21)\">Embroidery info</text>\r\n      <path class=\"cls-3\"\r\n            d=\"M52.19,60.37c2.8,2.8,90.48,101.27,90.48,101.27l14.94,21.12S41.62,79,37.58,75A10.33,10.33,0,0,1,52.19,60.37Z\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M48,67.87c1.47,1.47,4.91,6.21,4.11,7s-5.55-2.64-7-4.11-2-3.31-1.21-4.11S46.52,66.4,48,67.87Z\"/>\r\n      <path class=\"cls-5\" d=\"M57,62c22.91-11.07,37.09,12.4,54.52,2.48,21-11.93,44.11,13.82,44.11,13.82\"/>\r\n      <path class=\"cls-5\" d=\"M43.87,110.2S29,87.38,47.83,68.51\"/>\r\n      <path class=\"cls-6\"\r\n            d=\"M319.94,50.17,289.85,20.09A1.81,1.81,0,0,1,291.13,17h30.08A1.81,1.81,0,0,1,323,18.81V48.9A1.81,1.81,0,0,1,319.94,50.17Z\"/>\r\n    </svg>\r\n  </div>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -232,7 +249,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -249,6 +266,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EmbroideryProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -260,42 +288,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var EmbroideryProcessWidgetComponent = (function () {
-    function EmbroideryProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Embroidery;
-        // this.y = 245;
-        // this.x = 305;
+
+var EmbroideryProcessWidgetComponent = (function (_super) {
+    __extends(EmbroideryProcessWidgetComponent, _super);
+    function EmbroideryProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     EmbroideryProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return EmbroideryProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], EmbroideryProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], EmbroideryProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], EmbroideryProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], EmbroideryProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], EmbroideryProcessWidgetComponent.prototype, "data", void 0);
 EmbroideryProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-embroidery-process-widget',
         template: __webpack_require__("./src/app/landing-page/embroidery-process-widget/embroidery-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/embroidery-process-widget/embroidery-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], EmbroideryProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=embroidery-process-widget.component.js.map
 
 /***/ }),
@@ -303,7 +321,7 @@ EmbroideryProcessWidgetComponent = __decorate([
 /***/ "./src/app/landing-page/finishing-process-widget/finishing-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Finishing Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            Broken Yarn risk 100% in White color\r\n        </div>\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            100% PI focus to inspec tion broken yarn at arm hole and side seam parts\r\n        </div>\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">1) This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n    </div>\r\n</div>"
+module.exports = "<div [style.width.px]=\"data.width\" [style.height.px]=\"data.height\"  [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n    <div class=\"emi-svg-pic\">\r\n      <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 340 291.08\"><defs><style>.cls-1{fill:url(#未命名的渐变_9);}.cls-2{font-size:35.76px;font-family:SegoeUI, Segoe UI;}.cls-2,.cls-5{fill:#fff;}.cls-3{fill:none;}.cls-3,.cls-4{stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}.cls-4{fill:#68ead0;}.cls-5{opacity:0.2;}</style><linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\"><stop offset=\"0\" stop-color=\"#68ead0\"/><stop offset=\"1\" stop-color=\"#4ca2ef\"/></linearGradient></defs><title>eMI</title><path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/><text class=\"cls-2\" transform=\"translate(45.57 246.21)\">Finishing Info</text><path class=\"cls-3\" d=\"M168.92,109.91c-1,0-41.57.37-43.3.52h0c-45.95,4.17-63,24-80.12,61.54a4.13,4.13,0,0,0,3.75,5.83H190a4.14,4.14,0,0,0,4.12-4.34L188.86,70.24a4.13,4.13,0,0,0-4.12-3.91h-90a4.12,4.12,0,0,0-4.12,4.12V86.26a4.12,4.12,0,0,0,4.12,4.12H151\"/><path class=\"cls-4\" d=\"M146.5,155.81H103.86a4.12,4.12,0,0,0,0,8.25H146.5a4.12,4.12,0,0,0,0-8.25Z\"/><path class=\"cls-3\" d=\"M157,159.93a4.12,4.12,0,0,0,4.12,4.12h9.23a4.12,4.12,0,0,0,0-8.25h-9.23A4.12,4.12,0,0,0,157,159.93Z\"/><path class=\"cls-5\" d=\"M319.74,50.09,289.66,20a1.81,1.81,0,0,1,1.28-3.09H321a1.81,1.81,0,0,1,1.81,1.81V48.82A1.81,1.81,0,0,1,319.74,50.09Z\"/></svg>\r\n    </div>\r\n    <app-info-widget [data]=\"data\"></app-info-widget>\r\n    <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -315,7 +333,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -332,6 +350,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FinishingProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -343,42 +372,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var FinishingProcessWidgetComponent = (function () {
-    function FinishingProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Finishing;
-        // this.y = 245;
-        // this.x = 305;
+
+var FinishingProcessWidgetComponent = (function (_super) {
+    __extends(FinishingProcessWidgetComponent, _super);
+    function FinishingProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     FinishingProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return FinishingProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], FinishingProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], FinishingProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], FinishingProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], FinishingProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], FinishingProcessWidgetComponent.prototype, "data", void 0);
 FinishingProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-finishing-process-widget',
         template: __webpack_require__("./src/app/landing-page/finishing-process-widget/finishing-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/finishing-process-widget/finishing-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], FinishingProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=finishing-process-widget.component.js.map
 
 /***/ }),
@@ -386,7 +405,7 @@ FinishingProcessWidgetComponent = __decorate([
 /***/ "./src/app/landing-page/home-view/home-view.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"emi-svg-line\" #viewport>\r\n  <div [ngSwitch]=\"p.processType\" *ngFor=\"let p of processS\" style=\"position: absolute\" [style.left.px]=\"p.x\"\r\n       [style.top.px]=\"p.y\">\r\n    <app-sew-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"4\"></app-sew-process-widget>\r\n    <app-cutting-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"0\"></app-cutting-process-widget>\r\n    <app-embroidery-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"1\"></app-embroidery-process-widget>\r\n    <app-print-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"3\"></app-print-process-widget>\r\n    <app-washing-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"2\"></app-washing-process-widget>\r\n    <app-finishing-process-widget [width]=\"p.width\" [height]=\"p.height\" *ngSwitchCase=\"5\"></app-finishing-process-widget>\r\n    <div *ngSwitchDefault>ooh your component is missing!</div>\r\n  </div>\r\n  <svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><g app-svg-link *ngFor=\"let link of linkPaths\" [link]=\"link\"></g></svg>\r\n</div>\r\n<app-order-search></app-order-search>\r\n\r\n\r\n\r\n\r\n"
+module.exports = "<div class=\"emi-svg-line\" #viewport>\r\n  <div [ngSwitch]=\"p.processType\" *ngFor=\"let p of processS\" style=\"position: absolute\" [style.left.px]=\"p.x\"\r\n       [style.top.px]=\"p.y\">\r\n    <app-sew-process-widget [data]=\"p\" *ngSwitchCase=\"4\"></app-sew-process-widget>\r\n    <app-cutting-process-widget [data]=\"p\" *ngSwitchCase=\"0\"></app-cutting-process-widget>\r\n    <app-embroidery-process-widget [data]=\"p\" *ngSwitchCase=\"1\"></app-embroidery-process-widget>\r\n    <app-print-process-widget [data]=\"p\" *ngSwitchCase=\"3\"></app-print-process-widget>\r\n    <app-washing-process-widget [data]=\"p\" *ngSwitchCase=\"2\"></app-washing-process-widget>\r\n    <app-finishing-process-widget [data]=\"p\" *ngSwitchCase=\"5\"></app-finishing-process-widget>\r\n    <div *ngSwitchDefault>ooh your component is missing!</div>\r\n  </div>\r\n  <svg width=\"100%\" height=\"100%\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\"><g app-svg-link *ngFor=\"let link of linkPaths\" [link]=\"link\"></g></svg>\r\n</div>\r\n<app-order-search></app-order-search>\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -398,7 +417,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-line {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #f5f5f7;\n  margin-top: 36px;\n  height: calc(100% - 35px); }\n", ""]);
+exports.push([module.i, ".emi-svg-line {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background-color: #f6f6f6;\n  margin-top: 36px;\n  height: calc(100% - 35px); }\n", ""]);
 
 // exports
 
@@ -414,7 +433,6 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeViewComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -425,7 +443,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-
 var HomeViewComponent = (function () {
     function HomeViewComponent() {
     }
@@ -435,19 +452,21 @@ var HomeViewComponent = (function () {
     HomeViewComponent.prototype.updateLayout = function () {
         var unitW = this.viewPort.nativeElement.clientWidth / 5;
         var unitH = this.viewPort.nativeElement.clientHeight / 2;
-        var gap = 30;
+        console.log(unitW);
+        console.log(unitH);
+        var gap = 20;
         this.processS[0].x = unitW * (1 - 1) + gap;
         this.processS[0].y = unitH / 2;
         this.processS[0].width = unitW - gap * 2;
         this.processS[0].height = unitH;
         this.processS[1].x = unitW * (2 - 1) + gap;
-        this.processS[1].y = gap;
+        this.processS[1].y = 0;
         this.processS[1].width = unitW - gap * 2;
-        this.processS[1].height = unitH;
+        this.processS[1].height = unitH - gap;
         this.processS[2].x = unitW * (2 - 1) + gap;
-        this.processS[2].y = gap * 2 + unitH;
+        this.processS[2].y = unitH;
         this.processS[2].width = unitW - gap * 2;
-        this.processS[2].height = unitH;
+        this.processS[2].height = unitH - gap;
         this.processS[3].x = unitW * (3 - 1) + gap;
         this.processS[3].y = unitH / 2;
         this.processS[3].width = unitW - gap * 2;
@@ -478,42 +497,144 @@ var HomeViewComponent = (function () {
                 y: 145,
                 width: 150,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Cutting
+                processType: 0,
+                active: true,
+                infos: [
+                    {
+                        type: 'alert',
+                        desc: 'Broken Yarn risk 100% in White color'
+                    },
+                    {
+                        type: 'alert',
+                        desc: '100% PI focus to inspec tion broken yarn at arm hole and side seam parts'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    }
+                ]
             },
             {
                 x: 200,
                 y: 0,
                 width: 250,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Embroidery
+                processType: 1,
+                active: false,
+                infos: [
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    }
+                ]
             },
             {
                 x: 200,
                 y: 280,
                 width: 250,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Print
+                processType: 3,
+                active: true,
+                infos: [
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    }
+                ]
             },
             {
                 x: 400,
                 y: 145,
                 width: 250,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Sewing
+                processType: 4,
+                active: true,
+                infos: [
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'To use Ascolite machine & Synthetic thread to wrap buttons. Pls wrap button after gmt dipping !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'New Corporate Stripe Piping EAP# 665022879X along inside collarband for this order !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'Added "vanity label" at under french front placket. The Label need to be turned out after gmt folded !!'
+                    }
+                ]
             },
             {
                 x: 600,
                 y: 145,
                 width: 350,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Washing
+                processType: 2,
+                active: true,
+                infos: [
+                    {
+                        type: 'alert',
+                        desc: 'Broken Yarn risk 100% in White color'
+                    },
+                    {
+                        type: 'alert',
+                        desc: '100% PI focus to inspec tion broken yarn at arm hole and side seam parts'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    }
+                ]
             },
             {
                 x: 800,
                 y: 145,
                 width: 450,
                 height: 300,
-                processType: __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Finishing
+                processType: 5,
+                active: true,
+                infos: [
+                    {
+                        type: 'alert',
+                        desc: 'Broken Yarn risk 100% in White color'
+                    },
+                    {
+                        type: 'alert',
+                        desc: '100% PI focus to inspec tion broken yarn at arm hole and side seam parts'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is "TAILORED PRO GRAM" - New NOS Pro gram starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
+                    },
+                    {
+                        type: 'normal',
+                        desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !!'
+                    }
+                ]
             }
         ];
         this.updateLayout();
@@ -553,6 +674,104 @@ var _a;
 
 /***/ }),
 
+/***/ "./src/app/landing-page/info-filter.pipe.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoFilterPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var InfoFilterPipe = (function () {
+    function InfoFilterPipe() {
+    }
+    InfoFilterPipe.prototype.transform = function (value, args) {
+        return value.filter(function (value2) { return value2.type === args; });
+    };
+    return InfoFilterPipe;
+}());
+InfoFilterPipe = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Pipe */])({
+        name: 'infoFilter'
+    })
+], InfoFilterPipe);
+
+//# sourceMappingURL=info-filter.pipe.js.map
+
+/***/ }),
+
+/***/ "./src/app/landing-page/info-widget/info-widget.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card-block emi-alert-info\">\n  <div class=\"card-text\" *ngFor=\"let info of (data.infos | infoFilter : 'alert')\">\n    <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n   width=\"15px\" height=\"15px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\n  c0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\n  s0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\n  c-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\n  C8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\n  C0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\n  C7.914,6.468,8.219,6.889,8.072,7.154\"/>\n</svg>\n    {{info.desc}}\n  </div>\n</div>\n<div class=\"card-block emi-nor-info\">\n  <div class=\"card-text\" *ngFor=\"let info of (data.infos | infoFilter : 'normal'); let i = index\">\n    {{i+1}}) {{info.desc}}\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/landing-page/info-widget/info-widget.component.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/landing-page/info-widget/info-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InfoWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__info_filter_pipe__ = __webpack_require__("./src/app/landing-page/info-filter.pipe.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var InfoWidgetComponent = (function () {
+    function InfoWidgetComponent() {
+    }
+    InfoWidgetComponent.prototype.ngOnInit = function () {
+    };
+    return InfoWidgetComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], InfoWidgetComponent.prototype, "data", void 0);
+InfoWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-info-widget',
+        template: __webpack_require__("./src/app/landing-page/info-widget/info-widget.component.html"),
+        styles: [__webpack_require__("./src/app/landing-page/info-widget/info-widget.component.sass")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__info_filter_pipe__["a" /* InfoFilterPipe */]]
+    })
+], InfoWidgetComponent);
+
+//# sourceMappingURL=info-widget.component.js.map
+
+/***/ }),
+
 /***/ "./src/app/landing-page/landing-page.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -571,12 +790,16 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__embroidery_process_widget_embroidery_process_widget_component__ = __webpack_require__("./src/app/landing-page/embroidery-process-widget/embroidery-process-widget.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__washing_process_widget_washing_process_widget_component__ = __webpack_require__("./src/app/landing-page/washing-process-widget/washing-process-widget.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__finishing_process_widget_finishing_process_widget_component__ = __webpack_require__("./src/app/landing-page/finishing-process-widget/finishing-process-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__info_filter_pipe__ = __webpack_require__("./src/app/landing-page/info-filter.pipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__info_widget_info_widget_component__ = __webpack_require__("./src/app/landing-page/info-widget/info-widget.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -609,8 +832,9 @@ LandingPageModule = __decorate([
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__["a" /* HomeViewComponent */], __WEBPACK_IMPORTED_MODULE_3__order_search_order_search_component__["a" /* OrderSearchComponent */], __WEBPACK_IMPORTED_MODULE_6__sew_process_widget_sew_process_widget_component__["a" /* SewProcessWidgetComponent */],
             __WEBPACK_IMPORTED_MODULE_7__svg_link_svg_link_component__["a" /* SvgLinkComponent */], __WEBPACK_IMPORTED_MODULE_8__cutting_process_widget_cutting_process_widget_component__["a" /* CuttingProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_9__print_process_widget_print_process_widget_component__["a" /* PrintProcessWidgetComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__embroidery_process_widget_embroidery_process_widget_component__["a" /* EmbroideryProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_11__washing_process_widget_washing_process_widget_component__["a" /* WashingProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_12__finishing_process_widget_finishing_process_widget_component__["a" /* FinishingProcessWidgetComponent */]
+            __WEBPACK_IMPORTED_MODULE_10__embroidery_process_widget_embroidery_process_widget_component__["a" /* EmbroideryProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_11__washing_process_widget_washing_process_widget_component__["a" /* WashingProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_12__finishing_process_widget_finishing_process_widget_component__["a" /* FinishingProcessWidgetComponent */], __WEBPACK_IMPORTED_MODULE_13__info_filter_pipe__["a" /* InfoFilterPipe */], __WEBPACK_IMPORTED_MODULE_14__info_widget_info_widget_component__["a" /* InfoWidgetComponent */]
         ],
+        entryComponents: [__WEBPACK_IMPORTED_MODULE_14__info_widget_info_widget_component__["a" /* InfoWidgetComponent */]]
     })
 ], LandingPageModule);
 
@@ -674,7 +898,7 @@ LandingService = __decorate([
 /***/ "./src/app/landing-page/order-search/order-search.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div style=\"width: 100%;display: block;z-index: 999\">\r\n  <span style=\"margin-left: 30px;font-size: x-large;\">POC</span>\r\n  <svg class=\"emi-search-icon\" version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 250.313 250.313\" style=\"enable-background:new 0 0 250.313 250.313;\" xml:space=\"preserve\">\r\n<g id=\"Search\">\r\n\t<path style=\"fill-rule:evenodd;clip-rule:evenodd;\" d=\"M244.186,214.604l-54.379-54.378c-0.289-0.289-0.628-0.491-0.93-0.76\r\n\t\tc10.7-16.231,16.945-35.66,16.945-56.554C205.822,46.075,159.747,0,102.911,0S0,46.075,0,102.911\r\n\t\tc0,56.835,46.074,102.911,102.91,102.911c20.895,0,40.323-6.245,56.554-16.945c0.269,0.301,0.47,0.64,0.759,0.929l54.38,54.38\r\n\t\tc8.169,8.168,21.413,8.168,29.583,0C252.354,236.017,252.354,222.773,244.186,214.604z M102.911,170.146\r\n\t\tc-37.134,0-67.236-30.102-67.236-67.235c0-37.134,30.103-67.236,67.236-67.236c37.132,0,67.235,30.103,67.235,67.236\r\n\t\tC170.146,140.044,140.043,170.146,102.911,170.146z\"/>\r\n</g>\r\n</svg>\r\n  <form style=\"float: right\">\r\n    <div class=\"input-group\">\r\n      <input mdInput type=\"text\" class=\"form-control emi-search-input\" placeholder=\"Search order here\"\r\n             [mdAutocomplete]=\"auto\"\r\n             [formControl]=\"stateCtrl\">\r\n      <md-autocomplete #auto=\"mdAutocomplete\">\r\n        <md-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.id\">\r\n          <span>{{ state.id }}</span>\r\n        </md-option>\r\n      </md-autocomplete>\r\n    </div>\r\n  </form>\r\n</div>\r\n\r\n"
+module.exports = "<div style=\"width: 100%;display: block;z-index: 9999\">\r\n  <span style=\"margin-left: 30px;font-size: x-large;\">POC</span>\r\n  <svg class=\"emi-search-icon\" version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t viewBox=\"0 0 250.313 250.313\" style=\"enable-background:new 0 0 250.313 250.313;\" xml:space=\"preserve\">\r\n    <g id=\"Search\">\r\n      <path style=\"fill-rule:evenodd;clip-rule:evenodd;\" d=\"M244.186,214.604l-54.379-54.378c-0.289-0.289-0.628-0.491-0.93-0.76\r\n        c10.7-16.231,16.945-35.66,16.945-56.554C205.822,46.075,159.747,0,102.911,0S0,46.075,0,102.911\r\n        c0,56.835,46.074,102.911,102.91,102.911c20.895,0,40.323-6.245,56.554-16.945c0.269,0.301,0.47,0.64,0.759,0.929l54.38,54.38\r\n        c8.169,8.168,21.413,8.168,29.583,0C252.354,236.017,252.354,222.773,244.186,214.604z M102.911,170.146\r\n        c-37.134,0-67.236-30.102-67.236-67.235c0-37.134,30.103-67.236,67.236-67.236c37.132,0,67.235,30.103,67.235,67.236\r\n        C170.146,140.044,140.043,170.146,102.911,170.146z\"/>\r\n    </g>\r\n  </svg>\r\n  <form style=\"float: right\">\r\n    <div class=\"input-group\">\r\n      <input mdInput type=\"text\" class=\"form-control emi-search-input\" placeholder=\"Search order here\"\r\n             [mdAutocomplete]=\"auto\"\r\n             [formControl]=\"stateCtrl\">\r\n      <md-autocomplete #auto=\"mdAutocomplete\">\r\n        <md-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.id\">\r\n          <span>{{ state.id }}</span>\r\n        </md-option>\r\n      </md-autocomplete>\r\n    </div>\r\n  </form>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -770,7 +994,7 @@ var _a;
 /***/ "./src/app/landing-page/print-process-widget/print-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Print Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n    </div>\r\n</div>"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <div class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-5 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-3, .cls-4 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-5 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(35.63 246.21)\">Print info</text>\r\n      <ellipse class=\"cls-3\" cx=\"52.65\" cy=\"112.62\" rx=\"17.52\" ry=\"20.46\"\r\n               transform=\"translate(-43.15 33.39) rotate(-25.35)\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M164.73,58.68C160,48.24,149.49,42.85,140.55,46.89,139.79,47.24,44,94,44,94l0,.07c8.71-4,19.6.92,24.41,11.06,4.57,9.64,2,20.54-5.66,25.22,5.85-2.93,92.84-46.54,93.71-46.94C165.48,79.35,169.46,69.11,164.73,58.68Z\"/>\r\n      <ellipse class=\"cls-3\" cx=\"52.65\" cy=\"112.62\" rx=\"6.68\" ry=\"7.8\"\r\n               transform=\"translate(-43.15 33.39) rotate(-25.35)\"/>\r\n      <ellipse class=\"cls-3\" cx=\"52.65\" cy=\"158.66\" rx=\"17.52\" ry=\"20.46\"\r\n               transform=\"translate(-62.87 37.83) rotate(-25.35)\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M163.8,102.08c-4.73-10.44-15.44-14.49-24.38-10.44C138.67,92,44,140,44,140l0,.07c8.71-4,19.6.92,24.41,11.06,4.53,9.56,2,20.37-5.46,25.11l49.51-26.17,34.33-34.33c.94,2.86,1.16,11,1.2,15.57,5.12-2.7,8.32-4.38,8.48-4.45C165.48,122.84,168.53,112.52,163.8,102.08Z\"/>\r\n      <ellipse class=\"cls-3\" cx=\"52.65\" cy=\"158.66\" rx=\"6.68\" ry=\"7.8\"\r\n               transform=\"translate(-62.87 37.83) rotate(-25.35)\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M148.07,158v-3.49L109.61,193c7.14-3.43,40.63-19.59,45.43-22.41C161.16,167,148,174.32,148.07,158Z\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M132.2,95.29l-9.84,5L90.29,132.34a33.73,33.73,0,0,1,6.48,13.52l43.42-43.42A34.36,34.36,0,0,0,132.2,95.29Z\"/>\r\n      <path class=\"cls-4\" d=\"M80.28,121.63c0,.7-.11,1.39-.11,2.09a34.27,34.27,0,0,1,10.12,8.62l32.06-32.06Z\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M140.19,102.44,96.77,145.86a33.55,33.55,0,0,1,.84,7.42l-.12,11.86,49.37-49.37A33.73,33.73,0,0,0,140.19,102.44Z\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M146.86,115.77,97.49,165.13l-.11,11v6.2a25.77,25.77,0,0,0,.06,2.8l50.62-50.62S148.2,119.83,146.86,115.77Z\"/>\r\n      <path class=\"cls-4\" d=\"M148.07,134.56,97.44,185.18c.62,8.67,5.82,10.87,10.82,8.48l1.34-.65,38.46-38.46Z\"/>\r\n      <path class=\"cls-5\"\r\n            d=\"M319.94,52,289.85,21.94a1.81,1.81,0,0,1,1.28-3.09h30.08A1.81,1.81,0,0,1,323,20.66V50.75A1.81,1.81,0,0,1,319.94,52Z\"/>\r\n    </svg>\r\n  </div>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -782,7 +1006,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -799,6 +1023,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrintProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -810,42 +1045,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var PrintProcessWidgetComponent = (function () {
-    function PrintProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Print;
-        // this.y = 245;
-        // this.x = 305;
+
+var PrintProcessWidgetComponent = (function (_super) {
+    __extends(PrintProcessWidgetComponent, _super);
+    function PrintProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     PrintProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return PrintProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], PrintProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], PrintProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], PrintProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], PrintProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], PrintProcessWidgetComponent.prototype, "data", void 0);
 PrintProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-print-process-widget',
         template: __webpack_require__("./src/app/landing-page/print-process-widget/print-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/print-process-widget/print-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], PrintProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=print-process-widget.component.js.map
 
 /***/ }),
@@ -853,7 +1078,7 @@ PrintProcessWidgetComponent = __decorate([
 /***/ "./src/app/landing-page/sew-process-widget/sew-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Sewing Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n        <!--<div class=\"card-text\">\r\n          <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n       width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n  <path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n      c0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n      s0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n  <path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n      c-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n      C8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n      C0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n      C7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n  </svg>\r\n          This is an alert\r\n        </div>\r\n        <div class=\"card-text\">\r\n          <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n       width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n  <path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n      c0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n      s0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n  <path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n      c-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n      C8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n      C0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n      C7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n  </svg>\r\n          This is an alert\r\n        </div>\r\n        <div class=\"card-text\">\r\n          <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n       width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n  <path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n      c0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n      s0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n  <path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n      c-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n      C8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n      C0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n      C7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n  </svg>\r\n          This is an alert\r\n        </div>-->\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n        <div class=\"card-text\">To use Ascolite machine & Synthetic thread to wrap buttons. Pls wrap button after gmt\r\n            dipping !!\r\n        </div>\r\n        <div class=\"card-text\">New Corporate Stripe Piping EAP# 665022879X along inside collarband for this order !!\r\n        </div>\r\n        <div class=\"card-text\">Added \"vanity label\" at under french front placket. The Label need to be turned out after\r\n            gmt folded !!\r\n        </div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <a [href]=\"data.active?'PCS-MI/sewing':'PCS-MI/home#'\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-5 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-3, .cls-4 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-5 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">Sewing Info</text>\r\n      <path class=\"cls-3\"\r\n            d=\"M78.23,96.05a1.94,1.94,0,0,0,1.93-1.94V86.77a1.93,1.93,0,1,0-3.87,0v7.34a1.94,1.94,0,0,0,1.94,1.94Zm0,0\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M77.71,148.49h4.41V140a15,15,0,0,0,12-14.66v-8h38.69v0s12-.32,11.76,11.31l-10.19,38.07h66.4l-1.59-6.31L191.31,93.3V90.46a15,15,0,0,0-15-15H163.8a14.86,14.86,0,0,0-9.09,3.14l-64.55.87a14.86,14.86,0,0,0-11.06-5H76.32a15,15,0,0,0-15,15v35.83A14.93,14.93,0,0,0,75.19,140.2v19.17h2.51Z\"/>\r\n      <path class=\"cls-3\" d=\"M169.54,85.6A18.57,18.57,0,1,1,151,104.17,18.57,18.57,0,0,1,169.54,85.6Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,86.77a1.93,1.93,0,1,1,3.87,0v7.34a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,103a1.93,1.93,0,0,1,3.87,0v7.36a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-4\" d=\"M169.54,118.1a14.31,14.31,0,1,0-14.31-14.3,14.31,14.31,0,0,0,14.31,14.3Zm0,0\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M211.94,167.84H98.88a4.27,4.27,0,0,0-4-2.9H77.71v0H75.19v0H59.66a4.24,4.24,0,0,0-4,2.9H49.26a3.93,3.93,0,1,0,0,7.87H211.94a3.93,3.93,0,1,0,0-7.87Zm0,0\"/>\r\n      <line class=\"cls-3\" x1=\"77.46\" y1=\"66.42\" x2=\"77.46\" y2=\"74.38\"/>\r\n      <line class=\"cls-3\" x1=\"169.54\" y1=\"66.42\" x2=\"169.54\" y2=\"74.38\"/>\r\n      <path class=\"cls-5\"\r\n            d=\"M319.87,50.09,289.79,20a1.81,1.81,0,0,1,1.28-3.09h30.08A1.81,1.81,0,0,1,323,18.73V48.82A1.81,1.81,0,0,1,319.87,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -865,7 +1090,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -882,6 +1107,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SewProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -893,42 +1129,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var SewProcessWidgetComponent = (function () {
-    function SewProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Sewing;
-        // this.y = 245;
-        // this.x = 305;
+
+var SewProcessWidgetComponent = (function (_super) {
+    __extends(SewProcessWidgetComponent, _super);
+    function SewProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     SewProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return SewProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], SewProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], SewProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], SewProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], SewProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], SewProcessWidgetComponent.prototype, "data", void 0);
 SewProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-sew-process-widget',
         template: __webpack_require__("./src/app/landing-page/sew-process-widget/sew-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/sew-process-widget/sew-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], SewProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=sew-process-widget.component.js.map
 
 /***/ }),
@@ -936,7 +1162,7 @@ SewProcessWidgetComponent = __decorate([
 /***/ "./src/app/landing-page/svg-link/svg-link.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--3 line-->\r\n<svg:line [attr.x1]=\"point1.x\" [attr.y1]=\"point1.y\" [attr.x2]=\"point2.x\" [attr.y2]=\"point2.y\" stroke-width=\"1\"\r\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\r\n<svg:line [attr.x1]=\"point2.x\" [attr.y1]=\"point2.y\" [attr.x2]=\"point3.x\" [attr.y2]=\"point3.y\" stroke-width=\"1\"\r\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\r\n<svg:line [attr.x1]=\"point3.x\" [attr.y1]=\"point3.y\" [attr.x2]=\"point4.x\" [attr.y2]=\"point4.y\" stroke-width=\"1\"\r\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\r\n<!--2 circle-->\r\n<svg:circle xmlns:svg=\"http://www.w3.org/2000/svg\" [attr.cx]=\"point2.x\" [attr.cy]=\"point2.y\" r=\"2\" fill=\"green\"/>\r\n<svg:circle xmlns:svg=\"http://www.w3.org/2000/svg\" [attr.cx]=\"point3.x\" [attr.cy]=\"point3.y\" r=\"2\" fill=\"green\"/>\r\n<!--one arrow-->\r\n<svg:path [attr.transform]=\"transform\" d=\"M8.563,0.398l-7.879,4.55c-0.388,0.223-0.832-0.19-0.635-0.592l2.021-4.152c0.061-0.125,0.061-0.272,0-0.397\r\n\tL0.048-4.345c-0.196-0.403,0.248-0.816,0.635-0.592l7.879,4.549C8.865-0.213,8.865,0.224,8.563,0.398\"\r\n          [attr.fill]=\"link.active?'blue':'gray'\"\r\n          xmlns:svg=\"http://www.w3.org/2000/svg\"/>\r\n"
+module.exports = "<!--3 line-->\n<svg:line [attr.x1]=\"point1.x\" [attr.y1]=\"point1.y\" [attr.x2]=\"point2.x\" [attr.y2]=\"point2.y\" stroke-width=\"1\"\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\n<svg:line [attr.x1]=\"point2.x\" [attr.y1]=\"point2.y\" [attr.x2]=\"point3.x\" [attr.y2]=\"point3.y\" stroke-width=\"1\"\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\n<svg:line [attr.x1]=\"point3.x\" [attr.y1]=\"point3.y\" [attr.x2]=\"point4.x\" [attr.y2]=\"point4.y\" stroke-width=\"1\"\n          [attr.stroke]=\"link.active?'blue':'gray'\" xmlns:svg=\"http://www.w3.org/2000/svg\"/>\n<!--2 circle-->\n<svg:circle xmlns:svg=\"http://www.w3.org/2000/svg\" [attr.cx]=\"point2.x\" [attr.cy]=\"point2.y\" r=\"2\" fill=\"green\"/>\n<svg:circle xmlns:svg=\"http://www.w3.org/2000/svg\" [attr.cx]=\"point3.x\" [attr.cy]=\"point3.y\" r=\"2\" fill=\"green\"/>\n<!--one arrow-->\n<svg:path [attr.transform]=\"transform\" d=\"M8.563,0.398l-7.879,4.55c-0.388,0.223-0.832-0.19-0.635-0.592l2.021-4.152c0.061-0.125,0.061-0.272,0-0.397\n\tL0.048-4.345c-0.196-0.403,0.248-0.816,0.635-0.592l7.879,4.549C8.865-0.213,8.865,0.224,8.563,0.398\"\n          [attr.fill]=\"link.active?'blue':'gray'\"\n          xmlns:svg=\"http://www.w3.org/2000/svg\"/>\n"
 
 /***/ }),
 
@@ -964,7 +1190,6 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SvgLinkComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -974,7 +1199,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 var SvgLinkComponent = (function () {
     function SvgLinkComponent() {
@@ -999,7 +1223,7 @@ var SvgLinkComponent = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__base_widget__["LinkPath"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__base_widget__["LinkPath"]) === "function" && _a || Object)
+    __metadata("design:type", Object)
 ], SvgLinkComponent.prototype, "link", void 0);
 SvgLinkComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
@@ -1010,7 +1234,6 @@ SvgLinkComponent = __decorate([
     __metadata("design:paramtypes", [])
 ], SvgLinkComponent);
 
-var _a;
 //# sourceMappingURL=svg-link.component.js.map
 
 /***/ }),
@@ -1018,7 +1241,7 @@ var _a;
 /***/ "./src/app/landing-page/washing-process-widget/washing-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.top]=\"y+'px'\" [style.left]=\"x+'px'\" [style.width]=\"showMore ? width :width*1.8 +'px'\" [style.height]=\"showMore ? height :height*1.8 +'px'\" [style.zIndex]=\"showMore ? '' :999\"  class=\"card\"\r\n     style=\"width: 20rem;position: absolute\">\r\n    <div class=\"emi-svg-pic\">\r\n        <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t  viewBox=\"0 0 150 100\" enable-background=\"new 0 0 595.28 841.89\" xml:space=\"preserve\">\r\n<path fill=\"#FFFFFF\" d=\"M0.263,3.414C0.263,1.558,2.232,0,4.638,0h140.981c2.406,0,4.375,1.538,4.375,3.395\"/>\r\n<path fill=\"none\" stroke=\"#EFEEEE\" stroke-miterlimit=\"10\" d=\"M0.263,3.664c0-1.856,1.969-3.164,4.375-3.164h140.981\r\n\tc2.406,0,4.375,1.413,4.375,3.27\"/>\r\n<path fill=\"#92BCE5\" d=\"M149.994,3.453c0-1.856-1.969-3.375-4.375-3.375\"/>\r\n<path fill=\"#92BCE5\" d=\"M147,0H4.638C2.232,0,1,1.597,1,3.453V99h149V3\"/>\r\n<text transform=\"matrix(1.2963 0 0 1 20.3418 83.7227)\" fill=\"#FFFFFF\" font-family=\"'SegoeUI'\" font-size=\"12.15\">Washing Info</text>\r\n<line fill=\"#FCE7E7\" x1=\"1\" y1=\"99\" x2=\"150\" y2=\"99\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM75.274,37.729C74.843,37.741,56.344,38,55.583,38c-0.002,0-0.005,0-0.008,0c-20.234,1-27.756,7.948-35.281,20.706\r\n\tc-0.255,0.433-0.21,1.093,0.126,1.493C20.753,60.602,21.33,61,21.947,61h61.992c0.499,0,0.974-0.416,1.315-0.697\r\n\tc0.346-0.277,0.523-0.778,0.5-1.164L83.436,24.2c-0.047-0.746-0.848-1.2-1.814-1.2H41.975C40.972,23,40,23.235,40,24.012v5.37\r\n\tC40,30.156,40.972,31,41.975,31H68\"/>\r\n<path fill=\"#7CC8BB\" d=\"M66,53H46.001c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78\r\n\tc1.004,0,1.816-0.693,1.816-1.467c0-0.775-0.307-1.441-1.312-1.441\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM64.781,53h-18.78c-1.007,0-1.817,0.725-1.817,1.5c0,0.773,0.81,1.5,1.817,1.5h18.78c1.004,0,1.816-0.727,1.816-1.5\r\n\tC66.597,53.725,65.785,53,64.781,53z\"/>\r\n<path fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-miterlimit=\"10\" d=\"\r\n\tM69.403,54.5c0,0.773,0.813,1.5,1.816,1.5h4.063c1.003,0,1.816-0.727,1.816-1.5c0-0.775-0.813-1.5-1.816-1.5h-4.063\r\n\tC70.215,53,69.403,53.725,69.403,54.5z\"/>\r\n<g opacity=\"0.2\">\r\n\t<g>\r\n\t\t<defs>\r\n\t\t\t<rect id=\"SVGID_1_\" x=\"127\" y=\"6\" width=\"16\" height=\"12\"/>\r\n\t\t</defs>\r\n\t\t<clipPath id=\"SVGID_2_\">\r\n\t\t\t<use xlink:href=\"#SVGID_1_\"  overflow=\"visible\"/>\r\n\t\t</clipPath>\r\n\t\t<path clip-path=\"url(#SVGID_2_)\" fill=\"#FFFFFF\" d=\"M141.357,17.097L127.967,6.963C127.465,6.575,127.678,6,128.389,6h13.248\r\n\t\t\tC142.078,6,143,6.103,143,6.442v10.221C143,17.209,141.859,17.484,141.357,17.097\"/>\r\n\t</g>\r\n</g>\r\n</svg>\r\n    </div>\r\n    <div class=\"card-block emi-alert-info\">\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            Broken Yarn risk 100% in White color\r\n        </div>\r\n        <div class=\"card-text\">\r\n            <svg version=\"1.1\" id=\"图层_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\r\n\t width=\"8.552px\" height=\"7.92px\" viewBox=\"0 0 8.552 7.92\" enable-background=\"new 0 0 8.552 7.92\" xml:space=\"preserve\">\r\n<path fill=\"red\" d=\"M4.276,5.17c-0.168,0-0.245-0.135-0.245-0.305V2.123c0-0.168,0.077-0.305,0.245-0.305\r\n\tc0.168,0,0.246,0.137,0.246,0.305v2.743C4.521,5.035,4.444,5.17,4.276,5.17 M3.919,6.238c0,0.197,0.16,0.357,0.357,0.357\r\n\ts0.358-0.16,0.358-0.357S4.473,5.881,4.276,5.881S3.919,6.041,3.919,6.238\"/>\r\n<path fill=\"red\" d=\"M8.377,6.402L5.134,0.595C4.923,0.217,4.609,0,4.274,0s-0.649,0.217-0.86,0.595l-3.24,5.807\r\n\tc-0.209,0.375-0.23,0.76-0.058,1.055C0.289,7.751,0.635,7.92,1.065,7.92h6.421c0.432,0,0.777-0.169,0.949-0.463\r\n\tC8.607,7.162,8.588,6.778,8.377,6.402 M8.072,7.154c-0.18,0.322-0.521,0.329-0.908,0.329H1.389c-0.388,0-0.686-0.019-0.841-0.28\r\n\tC0.392,6.94,0.636,6.468,0.825,6.133l2.802-4.967c0.189-0.337,0.346-0.707,0.647-0.707c0.301,0,0.405,0.276,0.595,0.612l2.857,5.061\r\n\tC7.914,6.468,8.219,6.889,8.072,7.154\"/>\r\n</svg>\r\n            100% PI focus to inspec tion broken yarn at arm hole and side seam parts\r\n        </div>\r\n    </div>\r\n    <div class=\"card-block emi-nor-info\">\r\n        <div class=\"card-text\">1) This is \"TAILORED PRO GRAM\" - New NOS Pro gram starts from 2017, used same Trims as\r\n            Regular order !! REPEAT OF S17U00549 !!\r\n        </div>\r\n        <div class=\"card-text\">This is WRINKLE FREE ORDER (NON TAPE) order !!</div>\r\n    </div>\r\n    <div class=\"card-block\" style=\"border: solid 1px #dccbcb;\r\n\tbackground-color: #fff8f8;\r\n\ttext-align: center;\" (click)=\"showMore=!showMore\">{{showMore?'Show more':'Close'}}\r\n    </div>\r\n</div>"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" [style.opacity]=\"data.active?1:0.4\"\r\n     class=\"card\">\r\n  <a [href]=\"data.active?'PCS-MI/wi':'PCS-MI/home#'\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-6 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          letter-spacing: -0.04em;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-4, .cls-5 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-5 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-6 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">\r\n        <tspan class=\"cls-3\">W</tspan>\r\n        <tspan x=\"32.01\" y=\"0\">ashing Info</tspan>\r\n      </text>\r\n      <polyline class=\"cls-4\" points=\"194.13 74.81 169.29 177.8 69.95 177.8 45.12 74.81\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M187.51,102.26a22.28,22.28,0,0,0-13.83-4.8c-7.4,0-11.15,9.13-18,9.13s-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13a22.28,22.28,0,0,0-13.83,4.8\"/>\r\n      <circle class=\"cls-5\" cx=\"94.39\" cy=\"120.01\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"91.19\" cy=\"151.79\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"77.9\" cy=\"138.7\" r=\"4.3\"/>\r\n      <path class=\"cls-6\"\r\n            d=\"M319.78,50.09,289.7,20A1.81,1.81,0,0,1,291,16.92h30.08a1.81,1.81,0,0,1,1.81,1.81V48.82A1.81,1.81,0,0,1,319.78,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1030,7 +1253,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 100%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n", ""]);
+exports.push([module.i, ".emi-svg-pic {\n  width: 100%;\n  height: 50%; }\n\n.emi-alert-info {\n  background-color: #ff8f68;\n  color: red; }\n\n.card-block.emi-nor-info .card-text {\n  margin-bottom: 1em;\n  background-color: aliceblue; }\n\n.card {\n  overflow: scroll;\n  box-shadow: -1px 5px 25px -5px rgba(0, 0, 0, 0.8); }\n", ""]);
 
 // exports
 
@@ -1047,6 +1270,17 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WashingProcessWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1058,43 +1292,1167 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var WashingProcessWidgetComponent = (function () {
-    function WashingProcessWidgetComponent() {
-        this.showMore = true;
-        this.processType = __WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* EmiProcessType */].Washing;
-        // this.y = 245;
-        // this.x = 305;
+
+var WashingProcessWidgetComponent = (function (_super) {
+    __extends(WashingProcessWidgetComponent, _super);
+    function WashingProcessWidgetComponent(dialog) {
+        var _this = _super.call(this, dialog) || this;
+        _this.dialog = dialog;
+        return _this;
     }
     WashingProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     return WashingProcessWidgetComponent;
-}());
+}(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], WashingProcessWidgetComponent.prototype, "width", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], WashingProcessWidgetComponent.prototype, "height", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], WashingProcessWidgetComponent.prototype, "y", void 0);
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
-    __metadata("design:type", Number)
-], WashingProcessWidgetComponent.prototype, "x", void 0);
+    __metadata("design:type", Object)
+], WashingProcessWidgetComponent.prototype, "data", void 0);
 WashingProcessWidgetComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-washing-process-widget',
         template: __webpack_require__("./src/app/landing-page/washing-process-widget/washing-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/washing-process-widget/washing-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
 ], WashingProcessWidgetComponent);
 
+var _a;
 //# sourceMappingURL=washing-process-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-info-widget.sass":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".mitext-link {\n  text-decoration: none;\n  color: black; }\n\n.btn.btn-outline-primary:hover {\n  color: #007bff;\n  background-color: transparent; }\n\n.btn.btn-outline-primary.active:hover {\n  color: #fff;\n  background-color: #007bff;\n  border-color: #007bff; }\n\n.btn.btn-outline-success:hover {\n  color: #28a745;\n  background-color: transparent; }\n\n.btn.btn-outline-success.active:hover {\n  color: #fff;\n  background-color: #28a745;\n  border-color: #28a745; }\n\n.btn.btn-outline-info:hover {\n  color: #17a2b8;\n  background-color: transparent; }\n\n.btn.btn-outline-info.active:hover {\n  color: #fff;\n  background-color: #17a2b8;\n  border-color: #17a2b8; }\n\n.btn.btn-outline-warning:hover {\n  color: #ffc107;\n  background-color: transparent; }\n\n.btn.btn-outline-warning.active:hover {\n  color: #fff;\n  background-color: #ffc107;\n  border-color: #ffc107; }\n\n.list-group-item {\n  position: relative;\n  display: block;\n  padding: 0.25rem 0.75rem;\n  margin-bottom: -1px;\n  background-color: #fff;\n  border: 1px solid rgba(0, 0, 0, 0.125); }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-info-widget/sewing-info.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    MI Information\r\n  </div>\r\n  <div class=\"card-block mt-2\">\r\n    <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->\r\n    <button type=\"button\" class=\"btn ml-2 btn-outline-primary\"   [ngClass]=\"{active:selTag.TDC}\" (click)=\"selTag.TDC=!selTag.TDC;curTag='TDC';getMiTextInfo()\">TDC</button>\r\n    <!-- Indicates a successful or positive action -->\r\n    <button type=\"button\" class=\"btn btn-outline-success\" [ngClass]=\"{active:selTag.QA}\" (click)=\"selTag.QA=!selTag.QA;curTag='QA';getMiTextInfo()\">QA</button>\r\n    <!-- Contextual button for informational alert messages -->\r\n    <button type=\"button\" class=\"btn btn-outline-info\" [ngClass]=\"{active:selTag.COL}\" (click)=\"selTag.COL=!selTag.COL;curTag='COL';getMiTextInfo()\">COL</button>\r\n    <!-- Indicates caution should be taken with this action -->\r\n    <button type=\"button\" class=\"btn btn-outline-warning\" [ngClass]=\"{active:selTag.Warning}\" (click)=\"selTag.Warning=!selTag.Warning;curTag='Warning';getMiTextInfo()\">Warning</button>\r\n  </div>\r\n  <div class=\"card-block mr-2 ml-2 mb-2 pre-scrollable \" style=\"width:auto;height: 210px\">\r\n    <div *ngIf=\"selTag.Warning\" class=\"mt-2\" title=\"Warning Infomation\">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" *ngFor=\"let item of warningItems\">\r\n          <div>\r\n            <img src=\"assets/svg/warning.svg\" class=\"float-left mr-2\" height=\"20px\">\r\n            <h6 style=\"color: red\">{{item.desc}}</h6>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n\r\n    <div *ngIf=\"selTag.COL\" class=\"mt-2\" title=\"COL Infomation\">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" *ngFor=\"let item of colItems\"><h6>{{item.desc}}</h6></li>\r\n      </ul>\r\n    </div>\r\n\r\n    <div *ngIf=\"selTag.QA\" class=\"mt-2 mb-0\" title=\"QA Infomation\">\r\n      <table class=\"table table-bordered m-0\">\r\n        <thead>\r\n        <!-- <tr>\r\n           <th>Name</th>\r\n           <th>Desc</th>\r\n         </tr>-->\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let item of qaItems\">\r\n          <td class=\"h6\">{{item.name}}</td>\r\n          <td class=\"h6\">{{item.desc}}</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n\r\n    <div *ngIf=\"selTag.TDC\" class=\"mt-2\" id=\"tdcDiv\" style=\"position:relative; \">\r\n      <ul class=\"list-group\">\r\n        <li class=\"list-group-item\" *ngFor=\"let item of tdcItems\">\r\n          <div>\r\n            <span class=\"h6\"> {{item.name}}：</span>\r\n            <span *ngIf=\"item.path != null\"> <a href=\"javascript:void(0);\"  target=\"_blank\" (click)=\"openImageDialog(item)\">  {{item.desc}} </a> </span>\r\n            <span *ngIf=\"item.path == null\"> <a href=\"javascript:void(0);\" class=\"mitext-link\" target=\"_blank\" (click)=\"openImageDialog(item)\">  {{item.desc}} </a> </span>\r\n          </div>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-info-widget/sewing-info.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SewingInfoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wi_page_mi_text_service__ = __webpack_require__("./src/app/wi-page/mi-text.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var SewingInfoComponent = (function () {
+    function SewingInfoComponent(miTextService) {
+        this.miTextService = miTextService;
+        this.textInfoType = {
+            'TDC': 'TDC',
+            'QA': 'QA',
+            'COL': 'COL',
+            'WARNING': 'Warning'
+        };
+        this.selTag = {
+            'TDC': true,
+            'QA': false,
+            'COL': false,
+            'Warning': false
+        };
+    }
+    SewingInfoComponent.prototype.getSelectItem = function (tag) {
+        return null;
+    };
+    SewingInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.miTextService.initData().then(function (value) {
+            _this.items = value;
+            _this.tdcItems = _this.items.filter(function (i) { return i.tag === _this.textInfoType.TDC; });
+            _this.qaItems = _this.items.filter(function (i) { return i.tag === _this.textInfoType.QA; });
+            _this.colItems = _this.items.filter(function (i) { return i.tag === _this.textInfoType.COL; });
+            _this.warningItems = _this.items.filter(function (i) { return i.tag === _this.textInfoType.WARNING; });
+        });
+    };
+    SewingInfoComponent.prototype.getMiTextInfo = function (object) {
+        // console.log(this.selItems);
+    };
+    return SewingInfoComponent;
+}());
+SewingInfoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-sewing-info',
+        template: __webpack_require__("./src/app/sewing-page/sewing-info-widget/sewing-info.component.html"),
+        providers: [__WEBPACK_IMPORTED_MODULE_1__wi_page_mi_text_service__["a" /* MiTextService */]],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__wi_page_mi_text_service__["a" /* MiTextService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__wi_page_mi_text_service__["a" /* MiTextService */]) === "function" && _a || Object])
+], SewingInfoComponent);
+
+var _a;
+//# sourceMappingURL=sewing-info.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-page.module.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SewingPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/@angular/platform-browser.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sewing_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__sewing_svgshirts_widget_garment_patch_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-patch-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sewing_svgshirts_widget_garment_collar_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-collar-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sewing_svgshirts_widget_garment_shoulder_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-shoulder-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sewing_svgshirts_widget_garment_frontplacket_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-frontplacket-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sewing_svgshirts_widget_garment_leftfrontpanel_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-leftfrontpanel-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sewing_svgshirts_widget_garment_rightfrontpanel_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-rightfrontpanel-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__sewing_svgshirts_widget_garment_hem_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-hem-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__sewing_svgshirts_widget_garment_leftcuff_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-leftcuff-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__sewing_svgshirts_widget_garment_sleeves_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-sleeves-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__sewing_svgshirts_widget_garment_sleeveplacket_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-sleeveplacket-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__sewing_svgshirts_widget_garment_rightcuff_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-rightcuff-widget.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__sewing_info_widget_sewing_info_component__ = __webpack_require__("./src/app/sewing-page/sewing-info-widget/sewing-info.component.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+/*import local components*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var routes = [
+    { path: 'PCS-MI/sewing', component: __WEBPACK_IMPORTED_MODULE_6__sewing_widget_component__["a" /* SewingWidgetComponent */] },
+];
+var SewingPageModule = (function () {
+    function SewingPageModule() {
+    }
+    return SewingPageModule;
+}());
+SewingPageModule = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes),
+        ],
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_18__sewing_info_widget_sewing_info_component__["a" /* SewingInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["a" /* GarmentPartWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_6__sewing_widget_component__["a" /* SewingWidgetComponent */],
+            /*import garment*/
+            __WEBPACK_IMPORTED_MODULE_7__sewing_svgshirts_widget_garment_patch_widget_component__["a" /* GarmentPatchWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__sewing_svgshirts_widget_garment_sleeveplacket_widget_component__["a" /* GarmentSleeveplacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__sewing_svgshirts_widget_garment_collar_widget_component__["a" /* GarmentCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__sewing_svgshirts_widget_garment_shoulder_widget_component__["a" /* GarmentShoulderWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__sewing_svgshirts_widget_garment_leftfrontpanel_widget_component__["a" /* GarmentLeftFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__sewing_svgshirts_widget_garment_rightfrontpanel_widget_component__["a" /* GarmentRightfrontpanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__sewing_svgshirts_widget_garment_frontplacket_widget_component__["a" /* GarmentFrontPlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__sewing_svgshirts_widget_garment_hem_widget_component__["a" /* GarmentHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__sewing_svgshirts_widget_garment_leftcuff_widget_component__["a" /* GarmentLeftCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__sewing_svgshirts_widget_garment_sleeves_widget_component__["a" /* GarmentSleevesWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__sewing_svgshirts_widget_garment_rightcuff_widget_component__["a" /* GarmentRightcuffWidgetComponent */],
+            /*import local mock component*/
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["g" /* LocalGarmentCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["p" /* LocalGarmentSleevePlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["o" /* LocalGarmentShoulderWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["h" /* LocalGarmentFrontPlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["k" /* LocalGarmentLeftFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["i" /* LocalGarmentHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["n" /* LocalGarmentRightFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["j" /* LocalGarmentLeftCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["q" /* LocalGarmentSleevesWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["m" /* LocalGarmentRightCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["l" /* LocalGarmentPatchWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["d" /* LocalGarmentBackPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["c" /* LocalGarmentBackHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["f" /* LocalGarmentBackYokeWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["b" /* LocalGarmentBackCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["e" /* LocalGarmentBackSleevesWidgetComponent */]
+        ],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_18__sewing_info_widget_sewing_info_component__["a" /* SewingInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__sewing_svgshirts_widget_garment_patch_widget_component__["a" /* GarmentPatchWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__sewing_svgshirts_widget_garment_sleeveplacket_widget_component__["a" /* GarmentSleeveplacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__sewing_svgshirts_widget_garment_collar_widget_component__["a" /* GarmentCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__sewing_svgshirts_widget_garment_shoulder_widget_component__["a" /* GarmentShoulderWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__sewing_svgshirts_widget_garment_leftfrontpanel_widget_component__["a" /* GarmentLeftFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__sewing_svgshirts_widget_garment_rightfrontpanel_widget_component__["a" /* GarmentRightfrontpanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__sewing_svgshirts_widget_garment_frontplacket_widget_component__["a" /* GarmentFrontPlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__sewing_svgshirts_widget_garment_hem_widget_component__["a" /* GarmentHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_14__sewing_svgshirts_widget_garment_leftcuff_widget_component__["a" /* GarmentLeftCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__sewing_svgshirts_widget_garment_sleeves_widget_component__["a" /* GarmentSleevesWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__sewing_svgshirts_widget_garment_rightcuff_widget_component__["a" /* GarmentRightcuffWidgetComponent */],
+            /*Local Mock*/
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["l" /* LocalGarmentPatchWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["j" /* LocalGarmentLeftCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["p" /* LocalGarmentSleevePlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["g" /* LocalGarmentCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["o" /* LocalGarmentShoulderWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["h" /* LocalGarmentFrontPlacketWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["i" /* LocalGarmentHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["n" /* LocalGarmentRightFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["k" /* LocalGarmentLeftFrontPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["q" /* LocalGarmentSleevesWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["m" /* LocalGarmentRightCuffWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["d" /* LocalGarmentBackPanelWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["c" /* LocalGarmentBackHemWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["f" /* LocalGarmentBackYokeWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["b" /* LocalGarmentBackCollarWidgetComponent */],
+            __WEBPACK_IMPORTED_MODULE_5__sewing_svgshirts_widget_garment_part_widget_component__["e" /* LocalGarmentBackSleevesWidgetComponent */]
+        ],
+        providers: [],
+        bootstrap: []
+    })
+], SewingPageModule);
+
+//# sourceMappingURL=sewing-page.module.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-collar-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentCollarWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentCollarWidgetComponent = (function (_super) {
+    __extends(GarmentCollarWidgetComponent, _super);
+    function GarmentCollarWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentCollarWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentCollarWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-collar-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n  <g id=\"collar\">\n\t  <g id=\"g3599_3_\" transform=\"translate(433.0977,664.7261)\">\n\t  \t<path id=\"path3601_3_\" inkscape:connector-curvature=\"0\" class=\"st0\" d=\"M-24.2-612.5c4.3,13.1,8.6,26.3,13,39.4\n\t\t\tc-1.8,2.6-4.3,6.5-7.2,11.5c-3.7,6.3-4.9,9.2-6.9,12.8c-4.2,7.6-8.4,12.2-16.6,21.1c-4.4,4.7-10.3,10.7-17.9,17.2\n\t\t\tc-7.1-16.2-14.2-32.4-21.4-48.6c25.8-22.4,46.7-38.3,54.1-47.4c1.3-1.6,2.2-3,2.6-4.4c3.3-11.3-23.7-14.6-23.7-14.6l-52.9-0.7\n\t\t\tc-37.9-2.6-37.5,17-37.5,17c10,17.8,56.6,50,56.6,50C-89-544.1-96-529-103.1-514c-7.3-5.8-15.8-13.6-24.1-23.8\n\t\t\tc-11.3-13.8-18.4-27.3-22.9-37.7c3.9-11.8,7.7-23.6,11.6-35.4\"/>\n\t</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentCollarWidgetComponent);
+
+//# sourceMappingURL=garment-collar-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-frontplacket-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentFrontPlacketWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentFrontPlacketWidgetComponent = (function (_super) {
+    __extends(GarmentFrontPlacketWidgetComponent, _super);
+    function GarmentFrontPlacketWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentFrontPlacketWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentFrontPlacketWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-frontplacket-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"front_placket\">\n        <path class=\"st0\" d=\"M343,158.5c-4.3-2.6-8.7-5.2-13-7.8c7.2-15.1,14.4-30.2,21.6-45.2c7.1,15.4,14.3,30.7,21.4,46.1\n\t\tc-3.6,2-7.1,4-10.7,5.9c0.8,20.1,1.4,40.4,1.9,60.9c0.6,25.6,1,50.8,1.1,75.6c0,0,0,0,0,0c0,24.4,0.2,41.6,0.3,43.9\n\t\tc0.1,12,0,70.3-0.7,235.6c-3.8-2.1-9.2-5.6-14.3-11.3c-5.6-6.3-8.6-12.6-10.2-16.7C341.3,416.5,342.1,287.5,343,158.5z\"/>\n        <path class=\"st1\" d=\"M352.5,323.3\"/>\n      </g>\n     </svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentFrontPlacketWidgetComponent);
+
+//# sourceMappingURL=garment-frontplacket-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-hem-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentHemWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentHemWidgetComponent = (function (_super) {
+    __extends(GarmentHemWidgetComponent, _super);
+    function GarmentHemWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentHemWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentHemWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-hem-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n <g id=\"hem\">\n\t<path class=\"st0\" d=\"M340.4,545.9c1.5,3.9,8,19.4,25.4,28.3c15.8,8.1,30.6,5.8,35,4.9c-5.1,14.2-11,35.9-10.8,62.7\n\t\tc0.1,18,2.9,33.3,6,45c-11.1-9.6-29.3-27.9-42.2-56.4C337.4,594,338.8,561.1,340.4,545.9z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentHemWidgetComponent);
+
+//# sourceMappingURL=garment-hem-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-leftcuff-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentLeftCuffWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentLeftCuffWidgetComponent = (function (_super) {
+    __extends(GarmentLeftCuffWidgetComponent, _super);
+    function GarmentLeftCuffWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentLeftCuffWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentLeftCuffWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-leftcuff-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"leftcuff\">\n\t<path class=\"st0\" d=\"M130.3,589.3c2.5,15.7,4.9,31.3,7.4,47c6-2.2,16.2-5.2,29.2-4.8c13.7,0.5,24.1,4.5,30,7.3\n\t\tc-1.8-14.4-3.6-28.9-5.3-43.3c-9.2-2.7-18.5-5.5-27.7-8.2C152.6,588,141.4,588.6,130.3,589.3z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentLeftCuffWidgetComponent);
+
+//# sourceMappingURL=garment-leftcuff-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-leftfrontpanel-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentLeftFrontPanelWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentLeftFrontPanelWidgetComponent = (function (_super) {
+    __extends(GarmentLeftFrontPanelWidgetComponent, _super);
+    function GarmentLeftFrontPanelWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentLeftFrontPanelWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentLeftFrontPanelWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-leftfrontpanel-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"leftfront\">\n\t<path class=\"st0\" d=\"M200.8,160.4c33.7-12.9,67.3-25.8,101-38.8c4.8,6.4,11.7,14.4,21.4,22c7,5.6,13.7,9.7,19.6,12.8\n\t\tc-0.8,70.9-1.4,141.9-2,212.8c-0.9,105.8-1.5,211.7-2,317.5c-15.4,3.5-30.9,7.1-46.3,10.6c-7.5,1.6-26.4,4.6-48.3-3\n\t\tc-22-7.6-34.5-21.5-39.1-27.2c-2.8-37.1-3.5-76.4-1.3-117.6c0.3-6.5,0.8-13,1.2-19.4c7.5-1.9,1.4-293.3,2-292.4c0,0,0,0,0,0\n\t\tc-2.1-20.6-3.4-36.4-3.8-41.6C202.3,186.2,201.5,174.2,200.8,160.4z\"/>\n</g>\n     </svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentLeftFrontPanelWidgetComponent);
+
+//# sourceMappingURL=garment-leftfrontpanel-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentPartWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return LocalGarmentCollarWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return LocalGarmentShoulderWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return LocalGarmentFrontPlacketWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return LocalGarmentLeftFrontPanelWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return LocalGarmentRightFrontPanelWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return LocalGarmentHemWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return LocalGarmentLeftCuffWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return LocalGarmentSleevesWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return LocalGarmentRightCuffWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return LocalGarmentSleevePlacketWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return LocalGarmentPatchWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return LocalGarmentBackPanelWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return LocalGarmentBackHemWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return LocalGarmentBackYokeWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return LocalGarmentBackCollarWidgetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return LocalGarmentBackSleevesWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/*Import local mock garment*/
+// import {GarmentCollar} from './garment-collar-widget.component';
+// import {GarmentShoulder} from './garment-shoulder-widget.component';
+var GarmentPartWidgetComponent = (function () {
+    function GarmentPartWidgetComponent(componentFactoryResolver) {
+        this.componentFactoryResolver = componentFactoryResolver;
+        this.mappings = {
+            // 'collar': GarmentCollar,
+            // 'frontbody': GarmentFrontBody,
+            'collar': LocalGarmentCollarWidgetComponent,
+            'shoulder': LocalGarmentShoulderWidgetComponent,
+            'frontplacket': LocalGarmentFrontPlacketWidgetComponent,
+            'leftfrontpanel': LocalGarmentLeftFrontPanelWidgetComponent,
+            'rightfrontpanel': LocalGarmentRightFrontPanelWidgetComponent,
+            'hem': LocalGarmentHemWidgetComponent,
+            'leftcuff': LocalGarmentLeftCuffWidgetComponent,
+            'sleeves': LocalGarmentSleevesWidgetComponent,
+            'rightcuff': LocalGarmentRightCuffWidgetComponent,
+            'sleeveplacket': LocalGarmentSleevePlacketWidgetComponent,
+            'patch': LocalGarmentPatchWidgetComponent,
+            'backpanel': LocalGarmentBackPanelWidgetComponent,
+            'backhem': LocalGarmentBackHemWidgetComponent,
+            'backyoke': LocalGarmentBackYokeWidgetComponent,
+            'backcollar': LocalGarmentBackCollarWidgetComponent,
+        };
+    }
+    GarmentPartWidgetComponent.prototype.getComponentType = function (typeName) {
+        return this.mappings[typeName];
+    };
+    GarmentPartWidgetComponent.prototype.ngOnInit = function () {
+        if (this.type) {
+            var componentType = this.getComponentType(this.type);
+            // note: componentType must be declared within module.entryComponents
+            var factory = this.componentFactoryResolver.resolveComponentFactory(componentType);
+            this.componentRef = this.container.createComponent(factory);
+            // set component context
+            var instance = this.componentRef.instance;
+            instance.context = this.context;
+        }
+    };
+    GarmentPartWidgetComponent.prototype.ngOnDestroy = function () {
+        if (this.componentRef) {
+            this.componentRef.destroy();
+            this.componentRef = null;
+        }
+    };
+    return GarmentPartWidgetComponent;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])('container', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ViewContainerRef */] }),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ViewContainerRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["_18" /* ViewContainerRef */]) === "function" && _a || Object)
+], GarmentPartWidgetComponent.prototype, "container", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", String)
+], GarmentPartWidgetComponent.prototype, "type", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+    __metadata("design:type", Object)
+], GarmentPartWidgetComponent.prototype, "context", void 0);
+GarmentPartWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-part',
+        template: "\n    <div>\n      <div #container></div>\n    </div>\n  "
+    }),
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ComponentFactoryResolver */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["q" /* ComponentFactoryResolver */]) === "function" && _b || Object])
+], GarmentPartWidgetComponent);
+
+/*PassingMI(MIindex){...}*/
+/*Local Garment Component - Collar  */
+var LocalGarmentCollarWidgetComponent = (function (_super) {
+    __extends(LocalGarmentCollarWidgetComponent, _super);
+    function LocalGarmentCollarWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentCollarWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentCollarWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-collar-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n  <g id=\"collar\">\n\t  <g id=\"g3599_3_\" transform=\"translate(433.0977,664.7261)\">\n\t  \t<path id=\"path3601_3_\" inkscape:connector-curvature=\"0\" class=\"st0\" d=\"M-24.2-612.5c4.3,13.1,8.6,26.3,13,39.4\n\t\t\tc-1.8,2.6-4.3,6.5-7.2,11.5c-3.7,6.3-4.9,9.2-6.9,12.8c-4.2,7.6-8.4,12.2-16.6,21.1c-4.4,4.7-10.3,10.7-17.9,17.2\n\t\t\tc-7.1-16.2-14.2-32.4-21.4-48.6c25.8-22.4,46.7-38.3,54.1-47.4c1.3-1.6,2.2-3,2.6-4.4c3.3-11.3-23.7-14.6-23.7-14.6l-52.9-0.7\n\t\t\tc-37.9-2.6-37.5,17-37.5,17c10,17.8,56.6,50,56.6,50C-89-544.1-96-529-103.1-514c-7.3-5.8-15.8-13.6-24.1-23.8\n\t\t\tc-11.3-13.8-18.4-27.3-22.9-37.7c3.9-11.8,7.7-23.6,11.6-35.4\"/>\n\t</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentCollarWidgetComponent);
+
+/*Local Garment Component - Shoulder*/
+var LocalGarmentShoulderWidgetComponent = (function (_super) {
+    __extends(LocalGarmentShoulderWidgetComponent, _super);
+    function LocalGarmentShoulderWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentShoulderWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentShoulderWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-front-body-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n       <g id=\"shoulder\">\n\t    <path class=\"st0\" d=\"M422.3,91.7c30.8,12.4,61.6,24.8,92.5,37.2c-1,5.1-1.7,10.8-1.8,17c-0.1,1.9-0.1,3.8,0,5.5\n\t\t  c-35-11.4-70.1-22.9-105.1-34.3c2.4-4.5,4.7-8.9,7.1-13.4C417.4,99.7,419.9,95.7,422.3,91.7z\"/>\n\t    <path class=\"st0\" d=\"M283,89.7c-16.7,8.5-33.5,17-50.2,25.5c-12.1,6.1-24.1,12.2-36.2,18.3c1.4,9.7,2.8,19.4,4.2,29.1\n\t\t  c33.7-13.7,67.3-27.3,101-41c-3.2-4.3-6.6-9.3-9.8-14.8C288.3,100.8,285.4,95,283,89.7z\"/>\n\t    <path class=\"st1\" d=\"M259.5,288.2\"/>\n    </g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentShoulderWidgetComponent);
+
+/*Local Garment Component - Front Placket*/
+var LocalGarmentFrontPlacketWidgetComponent = (function (_super) {
+    __extends(LocalGarmentFrontPlacketWidgetComponent, _super);
+    function LocalGarmentFrontPlacketWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentFrontPlacketWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentFrontPlacketWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-frontplacket-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"front_placket\">\n        <path class=\"st0\" d=\"M343,158.5c-4.3-2.6-8.7-5.2-13-7.8c7.2-15.1,14.4-30.2,21.6-45.2c7.1,15.4,14.3,30.7,21.4,46.1\n\t\tc-3.6,2-7.1,4-10.7,5.9c0.8,20.1,1.4,40.4,1.9,60.9c0.6,25.6,1,50.8,1.1,75.6c0,0,0,0,0,0c0,24.4,0.2,41.6,0.3,43.9\n\t\tc0.1,12,0,70.3-0.7,235.6c-3.8-2.1-9.2-5.6-14.3-11.3c-5.6-6.3-8.6-12.6-10.2-16.7C341.3,416.5,342.1,287.5,343,158.5z\"/>\n        <path class=\"st1\" d=\"M352.5,323.3\"/>\n      </g>\n     </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentFrontPlacketWidgetComponent);
+
+/*Local Garment Component - Left Front Panel*/
+var LocalGarmentLeftFrontPanelWidgetComponent = (function (_super) {
+    __extends(LocalGarmentLeftFrontPanelWidgetComponent, _super);
+    function LocalGarmentLeftFrontPanelWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentLeftFrontPanelWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentLeftFrontPanelWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-leftfrontpanel-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"leftfront\">\n\t<path class=\"st0\" d=\"M200.8,160.4c33.7-12.9,67.3-25.8,101-38.8c4.8,6.4,11.7,14.4,21.4,22c7,5.6,13.7,9.7,19.6,12.8\n\t\tc-0.8,70.9-1.4,141.9-2,212.8c-0.9,105.8-1.5,211.7-2,317.5c-15.4,3.5-30.9,7.1-46.3,10.6c-7.5,1.6-26.4,4.6-48.3-3\n\t\tc-22-7.6-34.5-21.5-39.1-27.2c-2.8-37.1-3.5-76.4-1.3-117.6c0.3-6.5,0.8-13,1.2-19.4c7.5-1.9,1.4-293.3,2-292.4c0,0,0,0,0,0\n\t\tc-2.1-20.6-3.4-36.4-3.8-41.6C202.3,186.2,201.5,174.2,200.8,160.4z\"/>\n</g>\n     </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentLeftFrontPanelWidgetComponent);
+
+/*Local Garment Component - Right Front Panel*/
+var LocalGarmentRightFrontPanelWidgetComponent = (function (_super) {
+    __extends(LocalGarmentRightFrontPanelWidgetComponent, _super);
+    function LocalGarmentRightFrontPanelWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentRightFrontPanelWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentRightFrontPanelWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-rightfrontpanel-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n      <g id=\"rightfront\">\n        <path class=\"st0\" d=\"M513,151.4c-35-11.4-70.1-22.9-105.1-34.3c-3.8,6-9.2,13.3-16.8,20.6c-10.4,10-20.9,16.1-28.6,19.8\n\t\tc1.7,73.8,2.7,147.5,3.3,221.3c0.7,101.3,0.4,202.7-1,304c23.2,5.6,42.9,7.7,57,8.6c21.8,1.3,33.8,2.1,48.3-3\n\t\tc22-7.6,34.5-21.5,39.1-27.2c2.8-37.1,3.5-76.4,1.3-117.6c-0.3-6.5-0.8-13-1.2-19.4c-7.5-1.9-1.4-293.3-2-292.4c0,0,0,0,0,0\n\t\tc2.7-26,3.8-41.6,3.8-41.6C511.7,180.5,512.5,167.3,513,151.4z\"/>\n      </g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentRightFrontPanelWidgetComponent);
+
+/*Local Garment Component - Left Hem Panel*/
+var LocalGarmentHemWidgetComponent = (function (_super) {
+    __extends(LocalGarmentHemWidgetComponent, _super);
+    function LocalGarmentHemWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentHemWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentHemWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-hem-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n <g id=\"hem\">\n\t<path class=\"st0\" d=\"M340.4,545.9c1.5,3.9,8,19.4,25.4,28.3c15.8,8.1,30.6,5.8,35,4.9c-5.1,14.2-11,35.9-10.8,62.7\n\t\tc0.1,18,2.9,33.3,6,45c-11.1-9.6-29.3-27.9-42.2-56.4C337.4,594,338.8,561.1,340.4,545.9z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentHemWidgetComponent);
+
+/*Local Garment Component - Left Cuff*/
+var LocalGarmentLeftCuffWidgetComponent = (function (_super) {
+    __extends(LocalGarmentLeftCuffWidgetComponent, _super);
+    function LocalGarmentLeftCuffWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentLeftCuffWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentLeftCuffWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-leftcuff-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"leftcuff\">\n\t<path class=\"st0\" d=\"M130.3,589.3c2.5,15.7,4.9,31.3,7.4,47c6-2.2,16.2-5.2,29.2-4.8c13.7,0.5,24.1,4.5,30,7.3\n\t\tc-1.8-14.4-3.6-28.9-5.3-43.3c-9.2-2.7-18.5-5.5-27.7-8.2C152.6,588,141.4,588.6,130.3,589.3z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentLeftCuffWidgetComponent);
+
+/* Local Garment Component - Sleeves*/
+var LocalGarmentSleevesWidgetComponent = (function (_super) {
+    __extends(LocalGarmentSleevesWidgetComponent, _super);
+    function LocalGarmentSleevesWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentSleevesWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentSleevesWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-sleeves-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"sleeves\">\n        <path class=\"st0\" d=\"M195.8,133.2c-18.7,45-37,98.9-50.3,161c-25.3,117.6-23.2,220.3-15.2,295.1c6.7-1.7,16.3-3.3,27.9-2.6\n          c14.9,1,26.4,5.4,33.3,8.8c5.7-66.2,11.4-132.4,17.1-198.7c3.1-52.9,3.3-112.1-2.2-176.5C203.8,189.7,200.1,160.7,195.8,133.2z\"/>\n        <path class=\"st1\" d=\"M544,173.4c8.1,16,13.5,33.3,24.1,67.2c5.8,18.6,10,32,15,51c9.4,35.6,14.8,64.5,17.5,80\n          c5.4,31.2,10.5,70.8,12.5,117c-9,24.1-20.2,50.4-34,78c-13.5,26.9-27.4,51-40.9,72.3c-6.3-5.3-13.3-10.8-21.1-16.3\n          c-12.3-8.6-24.2-15.5-35-21c13.3-30.7,26.7-61.3,40-92c7.5-20.7,15-41.5,22.6-62.2c-12.9-38.3-25.8-76.6-38.7-114.8\n          c0.4-33.5,0.8-67.1,1.2-100.6c1.6-18.8,3.3-37.6,4.9-56.5c0.9-15.5,1.8-31.1,2.7-46.6C528.4,145.3,537.7,160.8,544,173.4z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentSleevesWidgetComponent);
+
+/*Local Garment Component - Right Cuff*/
+var LocalGarmentRightCuffWidgetComponent = (function (_super) {
+    __extends(LocalGarmentRightCuffWidgetComponent, _super);
+    function LocalGarmentRightCuffWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentRightCuffWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentRightCuffWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-rightcuff-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"rightcuff\">\n<path class=\"st0\" d=\"M482.1,601.5c-6.4,9.8-12.9,19.6-19.3,29.3c3.7,5.7,11.4,15.9,24.7,24c13.9,8.4,27,10.4,33.8,11\nc5.6-9,11.3-18,16.9-27C519.5,626.4,500.8,613.9,482.1,601.5z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentRightCuffWidgetComponent);
+
+/*Local Garment Component - Sleeve Placket*/
+var LocalGarmentSleevePlacketWidgetComponent = (function (_super) {
+    __extends(LocalGarmentSleevePlacketWidgetComponent, _super);
+    function LocalGarmentSleevePlacketWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentSleevePlacketWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentSleevePlacketWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-sleeveplacket-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n      <g id=\"sleeveplacket\">\n<path class=\"st0\" d=\"M504.2,614.8c12.3-19.5,24.6-39.1,36.9-58.6c5-3.4,10-6.9,15-10.3c-1.8,8.4-3.5,16.8-5.3,25.2\nc-11.2,17.2-22.5,34.3-33.7,51.5C512.8,619.9,508.5,617.4,504.2,614.8z\"/>\n</g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentSleevePlacketWidgetComponent);
+
+/*Local Garment Component - Patch*/
+var LocalGarmentPatchWidgetComponent = (function (_super) {
+    __extends(LocalGarmentPatchWidgetComponent, _super);
+    function LocalGarmentPatchWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentPatchWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentPatchWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-patch-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"50 -200 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"pocket\">\n<g>\n  <path class=\"st0\" d=\"M481.5,222.2c-24.8-0.2-49.7-0.3-74.5-0.5c-0.4,2.9-0.8,5.8-1.2,8.7c13.4,2.8,26.8,5.5,40.2,8.3\nc12.6-2.4,25.2-4.8,37.8-7.3C483,228.4,482.3,225.3,481.5,222.2z M445,236c-6.4,0-6.4-10,0-10C451.5,226,451.5,236,445,236z\"/>\n<path class=\"st1\" d=\"M409.5,231.7c12.2,2.4,24.3,4.7,36.5,7.1c10.8-2.1,21.7-4.2,32.5-6.3c-0.8,15.1-1.6,30.2-2.3,45.3\nc-2.7,4.1-5.6,6.7-7.7,8.3c-3.5,2.7-6.7,4.1-10.2,5.7c-2.8,1.2-4.8,2.1-7.7,2.7c-3.9,0.8-7.3,0.5-9.5,0.2\nc-5.9-0.8-10.4-2.5-13.3-3.8c-1.6-0.7-4-1.8-6.7-3.8c-4.4-3.2-7.1-6.7-8.7-9.2C411.4,262.5,410.5,247.1,409.5,231.7z\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentPatchWidgetComponent);
+
+/*Local Garment Component Back - BackPanel*/
+var LocalGarmentBackPanelWidgetComponent = (function (_super) {
+    __extends(LocalGarmentBackPanelWidgetComponent, _super);
+    function LocalGarmentBackPanelWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentBackPanelWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentBackPanelWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-backpanel-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"150 -100 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"backpanel\">\n<g>\n <path class=\"st0\" d=\"M676.3,648\"/>\n<path class=\"st1\" d=\"M464.7,318c-0.2-26.4-0.4-52.9-0.7-79.3\"/>\n<path class=\"st1\" d=\"M485,238.2c0,26.8,0,53.6,0,80.3\"/>\n<path id=\"back\" class=\"st1\" d=\"M308,245.8c3.3,73.8,5.3,150.1,5.7,228.6c0.4,87.2-1.3,171.6-4.7,253.1c29.9,12.9,89.8,34.4,169,33.9\n\tc78.9-0.5,138.3-22.5,168-35.7c-3.6-81.5-5.3-166.6-4.6-254.8c0.7-78.1,3.2-153.5,7.3-226.3c-54.1-3.5-112.5-5.6-174.7-5.3\n\tC415,239.6,359.6,242,308,245.8z\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentBackPanelWidgetComponent);
+
+/*Local Garment Component Back - BackHem*/
+var LocalGarmentBackHemWidgetComponent = (function (_super) {
+    __extends(LocalGarmentBackHemWidgetComponent, _super);
+    function LocalGarmentBackHemWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentBackHemWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentBackHemWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-backhem-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"150 -100 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"backpanel\">\n<g>\n<path class=\"st1\" d=\"M308.7,796.7c29.3,14.6,88.4,39.1,166.7,38.7c80.6-0.5,140.9-27.3,170-42.7c0.2-22.3,0.4-44.7,0.7-67\n\tc-33.5,14.6-93.7,35.8-171.3,35.7c-74.5-0.1-132.5-19.8-165.7-33.9C308.9,750.5,308.8,773.6,308.7,796.7z\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentBackHemWidgetComponent);
+
+/*Local Garment Component Back - BackYoke*/
+var LocalGarmentBackYokeWidgetComponent = (function (_super) {
+    __extends(LocalGarmentBackYokeWidgetComponent, _super);
+    function LocalGarmentBackYokeWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentBackYokeWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentBackYokeWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-backyoke-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"150 -100 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"backyoke\">\n<g>\n<path id=\"yoke\" class=\"st0\" d=\"M297,195.3c3.7,17.2,7.3,34.4,11,51.7c51.4-4.9,107.9-8,168.7-8c62.6,0,120.6,3.2,173.3,8.3\n\tc2.8-17.2,5.7-34.5,8.5-51.7c-13.9-8.1-29.8-16.4-47.9-24.3c-21.6-9.3-41.7-16.1-59.7-21c-29.7-6.8-84.1-15.1-149,0\n\tC355.1,161.3,319.6,180.5,297,195.3z\"/>\n<path class=\"st1\" d=\"M290,739.3\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentBackYokeWidgetComponent);
+
+/*Back Garmnet Component Back - BackCollar*/
+var LocalGarmentBackCollarWidgetComponent = (function (_super) {
+    __extends(LocalGarmentBackCollarWidgetComponent, _super);
+    function LocalGarmentBackCollarWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentBackCollarWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentBackCollarWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-backcollar-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"150 -100 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"backcollar\">\n<g>\n<g id=\"collar\">\n\t<path class=\"st0\" d=\"M405,148.3c19.4-3.8,43.3-6.9,70.7-7c28.4-0.2,53.1,2.9,73,6.7c-2.9-5.9-5.8-12.1-8.7-18.7\n\t\tc-2.9-6.8-5.6-13.3-8-19.7c-13.4-3.1-30.1-5.7-49.3-6c-26.3-0.4-48.4,3.6-64.6,7.9c-2.3,5.5-4.5,11.3-6.7,17.4\n\t\tC409,135.7,406.9,142.1,405,148.3z\"/>\n\t<path class=\"st1\" d=\"M605.7,224\"/>\n</g>\n<path class=\"st0\" d=\"M477.6,137.2c-2.2,0-3.9-1.8-3.9-3.9s1.8-3.9,3.9-3.9c2.2,0,3.9,1.8,3.9,3.9S479.7,137.2,477.6,137.2z\"/>\n<path class=\"st2\" d=\"M290,739.3\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentBackCollarWidgetComponent);
+
+/*Back Garmnet Component Back - BackSleeves*/
+var LocalGarmentBackSleevesWidgetComponent = (function (_super) {
+    __extends(LocalGarmentBackSleevesWidgetComponent, _super);
+    function LocalGarmentBackSleevesWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return LocalGarmentBackSleevesWidgetComponent;
+}(GarmentPartWidgetComponent));
+LocalGarmentBackSleevesWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-local-garment-backsleeves-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"150 -100 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"backcollar\">\n<g>\n<g id=\"collar\">\n<path class=\"st0\" d=\"M676.3,648\"/>\n<path class=\"st1\" d=\"M295.3,200.7c6.9,32.6,12.9,70.2,16,112c2.9,38.1,2.9,73.1,1.3,104c-12.9,34.2-25.8,68.4-38.7,102.7\n\tc13.6,32.7,27.1,65.3,40.7,98c-1.8,30.2-3.6,60.4-5.3,90.7c-4.5,3.4-9.2,7.1-14,11.3c-5.5,4.8-10.3,9.5-14.7,14\n\tc-24.4-31.5-42.2-59.8-54.7-81.3c-26.7-46.2-29.8-63.5-30.7-75.3c-1-13.9,1.5-14.3,3.3-51.3c1.4-29.2,0.3-38,1-60.6\n\tc0.6-18,2.3-43.8,7.7-75.4c13.7-31.5,28.2-63.5,43.3-96C265.5,261.6,280.4,230.7,295.3,200.7z\"/>\n<path class=\"st1\" d=\"M231.3,614.7c15-33.9,30-67.8,45.1-101.7\"/>\n<path class=\"st1\" d=\"M660.7,196.7c-7.2,30-15.9,74.1-20,128c-4.8,63.6-0.9,111,2,146.7c6.8,84,13.7,175.8,22,289.3\n\tc0.2,15.8,0.4,31.6,0.7,47.3c23.8,2,47.6,4,71.3,6c2.4-39,4.3-90.9,3.3-152c-0.8-51.8-2.2-123-14.7-208.7\n\tC715.9,388.1,697.8,299.4,660.7,196.7z\"/>\n<path class=\"st1\" d=\"M308.8,774c-9.4-13.6-18.7-27.1-28.1-40.7\"/>\n<path class=\"st1\" d=\"M290,739.3\"/>\n<path class=\"st2\" d=\"M284.8,743.4c7.7-7.6,15.5-15.2,23.2-22.7\"/>\n</g>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], LocalGarmentBackSleevesWidgetComponent);
+
+var _a, _b;
+//# sourceMappingURL=garment-part-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-patch-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentPatchWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentPatchWidgetComponent = (function (_super) {
+    __extends(GarmentPatchWidgetComponent, _super);
+    function GarmentPatchWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentPatchWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentPatchWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-patch-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n\n<g id=\"pocket\">\n<g>\n  <path class=\"st0\" d=\"M481.5,222.2c-24.8-0.2-49.7-0.3-74.5-0.5c-0.4,2.9-0.8,5.8-1.2,8.7c13.4,2.8,26.8,5.5,40.2,8.3\nc12.6-2.4,25.2-4.8,37.8-7.3C483,228.4,482.3,225.3,481.5,222.2z M445,236c-6.4,0-6.4-10,0-10C451.5,226,451.5,236,445,236z\"/>\n<path class=\"st1\" d=\"M409.5,231.7c12.2,2.4,24.3,4.7,36.5,7.1c10.8-2.1,21.7-4.2,32.5-6.3c-0.8,15.1-1.6,30.2-2.3,45.3\nc-2.7,4.1-5.6,6.7-7.7,8.3c-3.5,2.7-6.7,4.1-10.2,5.7c-2.8,1.2-4.8,2.1-7.7,2.7c-3.9,0.8-7.3,0.5-9.5,0.2\nc-5.9-0.8-10.4-2.5-13.3-3.8c-1.6-0.7-4-1.8-6.7-3.8c-4.4-3.2-7.1-6.7-8.7-9.2C411.4,262.5,410.5,247.1,409.5,231.7z\"/>\n</g>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentPatchWidgetComponent);
+
+//# sourceMappingURL=garment-patch-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-rightcuff-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentRightcuffWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentRightcuffWidgetComponent = (function (_super) {
+    __extends(GarmentRightcuffWidgetComponent, _super);
+    function GarmentRightcuffWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentRightcuffWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentRightcuffWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-rightcuff-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n<g id=\"rightcuff\">\n<path class=\"st0\" d=\"M482.1,601.5c-6.4,9.8-12.9,19.6-19.3,29.3c3.7,5.7,11.4,15.9,24.7,24c13.9,8.4,27,10.4,33.8,11\nc5.6-9,11.3-18,16.9-27C519.5,626.4,500.8,613.9,482.1,601.5z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentRightcuffWidgetComponent);
+
+//# sourceMappingURL=garment-rightcuff-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-rightfrontpanel-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentRightfrontpanelWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentRightfrontpanelWidgetComponent = (function (_super) {
+    __extends(GarmentRightfrontpanelWidgetComponent, _super);
+    function GarmentRightfrontpanelWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentRightfrontpanelWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentRightfrontpanelWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-rightfrontpanel-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n      <g id=\"rightfront\">\n        <path class=\"st0\" d=\"M513,151.4c-35-11.4-70.1-22.9-105.1-34.3c-3.8,6-9.2,13.3-16.8,20.6c-10.4,10-20.9,16.1-28.6,19.8\n\t\tc1.7,73.8,2.7,147.5,3.3,221.3c0.7,101.3,0.4,202.7-1,304c23.2,5.6,42.9,7.7,57,8.6c21.8,1.3,33.8,2.1,48.3-3\n\t\tc22-7.6,34.5-21.5,39.1-27.2c2.8-37.1,3.5-76.4,1.3-117.6c-0.3-6.5-0.8-13-1.2-19.4c-7.5-1.9-1.4-293.3-2-292.4c0,0,0,0,0,0\n\t\tc2.7-26,3.8-41.6,3.8-41.6C511.7,180.5,512.5,167.3,513,151.4z\"/>\n      </g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentRightfrontpanelWidgetComponent);
+
+//# sourceMappingURL=garment-rightfrontpanel-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-shoulder-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentShoulderWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentShoulderWidgetComponent = (function (_super) {
+    __extends(GarmentShoulderWidgetComponent, _super);
+    function GarmentShoulderWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentShoulderWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentShoulderWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-shoulder-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n      <g id=\"shoulder\">\n\t   <path class=\"st0\" d=\"M422.3,91.7c30.8,12.4,61.6,24.8,92.5,37.2c-1,5.1-1.7,10.8-1.8,17c-0.1,1.9-0.1,3.8,0,5.5\n\t  \tc-35-11.4-70.1-22.9-105.1-34.3c2.4-4.5,4.7-8.9,7.1-13.4C417.4,99.7,419.9,95.7,422.3,91.7z\"/>\n\t    <path class=\"st0\" d=\"M283,89.7c-16.7,8.5-33.5,17-50.2,25.5c-12.1,6.1-24.1,12.2-36.2,18.3c1.4,9.7,2.8,19.4,4.2,29.1\n\t\t  c33.7-13.7,67.3-27.3,101-41c-3.2-4.3-6.6-9.3-9.8-14.8C288.3,100.8,285.4,95,283,89.7z\"/>\n\t    <path class=\"st1\" d=\"M259.5,288.2\"/>\n</g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n      :host {\n          position: fixed;\n          top: 0;\n          left: 0\n      }  \n   "]
+    })
+], GarmentShoulderWidgetComponent);
+
+//# sourceMappingURL=garment-shoulder-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-sleeveplacket-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentSleeveplacketWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentSleeveplacketWidgetComponent = (function (_super) {
+    __extends(GarmentSleeveplacketWidgetComponent, _super);
+    function GarmentSleeveplacketWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentSleeveplacketWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentSleeveplacketWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-sleeveplacket-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n      <g id=\"sleeveplacket\">\n<path class=\"st0\" d=\"M504.2,614.8c12.3-19.5,24.6-39.1,36.9-58.6c5-3.4,10-6.9,15-10.3c-1.8,8.4-3.5,16.8-5.3,25.2\nc-11.2,17.2-22.5,34.3-33.7,51.5C512.8,619.9,508.5,617.4,504.2,614.8z\"/>\n</g>\n      </svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], GarmentSleeveplacketWidgetComponent);
+
+//# sourceMappingURL=garment-sleeveplacket-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-svgshirts-widget/garment-sleeves-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentSleevesWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__ = __webpack_require__("./src/app/sewing-page/sewing-svgshirts-widget/garment-part-widget.component.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+var GarmentSleevesWidgetComponent = (function (_super) {
+    __extends(GarmentSleevesWidgetComponent, _super);
+    function GarmentSleevesWidgetComponent() {
+        return _super !== null && _super.apply(this, arguments) || this;
+    }
+    return GarmentSleevesWidgetComponent;
+}(__WEBPACK_IMPORTED_MODULE_1__garment_part_widget_component__["a" /* GarmentPartWidgetComponent */]));
+GarmentSleevesWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-garment-sleeves-widget',
+        template: "\n    <div>\n      <svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" x=\"0px\" y=\"0px\" width=\"1000px\" height=\"630px\" viewBox=\"0 0 1000 1052.4\" style=\"enable-background:new 0 0 1000 1052.4;\" xml:space=\"preserve\">\n        <g id=\"sleeves\">\n        <path class=\"st0\" d=\"M195.8,133.2c-18.7,45-37,98.9-50.3,161c-25.3,117.6-23.2,220.3-15.2,295.1c6.7-1.7,16.3-3.3,27.9-2.6\n          c14.9,1,26.4,5.4,33.3,8.8c5.7-66.2,11.4-132.4,17.1-198.7c3.1-52.9,3.3-112.1-2.2-176.5C203.8,189.7,200.1,160.7,195.8,133.2z\"/>\n        <path class=\"st1\" d=\"M544,173.4c8.1,16,13.5,33.3,24.1,67.2c5.8,18.6,10,32,15,51c9.4,35.6,14.8,64.5,17.5,80\n          c5.4,31.2,10.5,70.8,12.5,117c-9,24.1-20.2,50.4-34,78c-13.5,26.9-27.4,51-40.9,72.3c-6.3-5.3-13.3-10.8-21.1-16.3\n          c-12.3-8.6-24.2-15.5-35-21c13.3-30.7,26.7-61.3,40-92c7.5-20.7,15-41.5,22.6-62.2c-12.9-38.3-25.8-76.6-38.7-114.8\n          c0.4-33.5,0.8-67.1,1.2-100.6c1.6-18.8,3.3-37.6,4.9-56.5c0.9-15.5,1.8-31.1,2.7-46.6C528.4,145.3,537.7,160.8,544,173.4z\"/>\n</g>\n</svg>\n    </div>\n  ",
+        styles: ["\n    :host {\n      position: fixed;\n      top: 0;\n      left: 0\n    }\n  "]
+    })
+], GarmentSleevesWidgetComponent);
+
+//# sourceMappingURL=garment-sleeves-widget.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-widget.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h3>Sewing</h3>\r\n\r\n<div style=\"border:1px\"  ></div>\r\n<div  class=\"svg\" *ngIf=\"!showHide\">\r\n  <app-garment-part *ngFor=\"let part of garmentPartsFront\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n\r\n\r\n<div class=\"svg\" *ngIf=\"showHide\">\r\n  <app-garment-part *ngFor=\"let part of garmentPartsBack\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n\r\n\r\n<!-- Button Session-->\r\n<div class=\"button-switch\">\r\n  <button  (click)=\" showHide = !showHide\"><img src=\"https://image.freepik.com/free-icon/return-arrow_318-1896.jpg\" height=\"20\" width=\"20\"/></button>\r\n</div>\r\n\r\n<!-- Info Box Session-->\r\n<div   class=\"info\">\r\n  <!--<app-sewing-orderinfobox-widget>-->\r\n  <!--</app-sewing-orderinfobox-widget>-->\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/sewing-page/sewing-widget.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SewingWidgetComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var SewingWidgetComponent = (function () {
+    function SewingWidgetComponent() {
+        this.garmentPartsFront = [
+            'collar', 'shoulder',
+            'frontplacket', 'leftfrontpanel', 'rightfrontpanel',
+            'hem', 'leftcuff', 'sleeves', 'rightcuff', 'sleeveplacket', 'patch'
+        ]; // load garment parts for this order from service
+        this.garmentPartsBack = [
+            'backpanel', 'backhem', 'backyoke', 'backcollar', 'backsleeve'
+        ]; // load garment parts for this order from service
+    }
+    SewingWidgetComponent.prototype.ngOnInit = function () {
+    };
+    return SewingWidgetComponent;
+}());
+SewingWidgetComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-sewing',
+        template: __webpack_require__("./src/app/sewing-page/sewing-widget.component.html"),
+        styles: [__webpack_require__("./src/app/sewing-page/sewing-info-widget.sass")],
+    })
+], SewingWidgetComponent);
+
+//# sourceMappingURL=sewing-widget.component.js.map
 
 /***/ }),
 
