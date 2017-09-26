@@ -3701,7 +3701,7 @@ var MiTextService = (function () {
     }
     MiTextService.prototype.initData = function () {
         return Promise.resolve([
-            { tag: 'TDC', name: '1.Self Fabric Neck Tape', desc: 'Self Fabric Neck Tape', path: 'assets/img/wi/neckTape.png' },
+            { tag: 'TDC', name: '1.Self Fabric Neck Tape', desc: 'Self Fabric Neck Tape', path: 'PCS-MI/assets/img/wi/neckTape.png' },
             { tag: 'TDC', name: '2.Thread Color', desc: 'Horizontal' },
             { tag: 'TDC', name: '3.SPI', desc: '14' },
             { tag: 'TDC', name: '4.Speed', desc: '2800rpm' },
