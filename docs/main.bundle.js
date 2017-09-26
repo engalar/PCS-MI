@@ -1143,7 +1143,9 @@ var SewProcessWidgetComponent = (function (_super) {
     SewProcessWidgetComponent.prototype.ngOnInit = function () {
     };
     SewProcessWidgetComponent.prototype.jump = function () {
-        this.router.navigateByUrl('PCS-MI/sewing');
+        if (this.data.active) {
+            this.router.navigateByUrl('PCS-MI/sewing');
+        }
     };
     return SewProcessWidgetComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
@@ -1247,7 +1249,7 @@ SvgLinkComponent = __decorate([
 /***/ "./src/app/landing-page/washing-process-widget/washing-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" [style.opacity]=\"data.active?1:0.4\"\r\n     class=\"card\">\r\n  <a [href]=\"data.active?'PCS-MI/wi':'PCS-MI/home#'\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-6 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          letter-spacing: -0.04em;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-4, .cls-5 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-5 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-6 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">\r\n        <tspan class=\"cls-3\">W</tspan>\r\n        <tspan x=\"32.01\" y=\"0\">ashing Info</tspan>\r\n      </text>\r\n      <polyline class=\"cls-4\" points=\"194.13 74.81 169.29 177.8 69.95 177.8 45.12 74.81\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M187.51,102.26a22.28,22.28,0,0,0-13.83-4.8c-7.4,0-11.15,9.13-18,9.13s-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13a22.28,22.28,0,0,0-13.83,4.8\"/>\r\n      <circle class=\"cls-5\" cx=\"94.39\" cy=\"120.01\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"91.19\" cy=\"151.79\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"77.9\" cy=\"138.7\" r=\"4.3\"/>\r\n      <path class=\"cls-6\"\r\n            d=\"M319.78,50.09,289.7,20A1.81,1.81,0,0,1,291,16.92h30.08a1.81,1.81,0,0,1,1.81,1.81V48.82A1.81,1.81,0,0,1,319.78,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" [style.opacity]=\"data.active?1:0.4\"\r\n     class=\"card\">\r\n  <a (click)=\"jump()\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\"\r\n         viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-6 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          letter-spacing: -0.04em;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-4, .cls-5 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-5 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-6 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">\r\n        <tspan class=\"cls-3\">W</tspan>\r\n        <tspan x=\"32.01\" y=\"0\">ashing Info</tspan>\r\n      </text>\r\n      <polyline class=\"cls-4\" points=\"194.13 74.81 169.29 177.8 69.95 177.8 45.12 74.81\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M187.51,102.26a22.28,22.28,0,0,0-13.83-4.8c-7.4,0-11.15,9.13-18,9.13s-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13-11.15,9.13-18,9.13-10.62-9.13-18-9.13a22.28,22.28,0,0,0-13.83,4.8\"/>\r\n      <circle class=\"cls-5\" cx=\"94.39\" cy=\"120.01\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"91.19\" cy=\"151.79\" r=\"3.2\"/>\r\n      <circle class=\"cls-5\" cx=\"77.9\" cy=\"138.7\" r=\"4.3\"/>\r\n      <path class=\"cls-6\"\r\n            d=\"M319.78,50.09,289.7,20A1.81,1.81,0,0,1,291,16.92h30.08a1.81,1.81,0,0,1,1.81,1.81V48.82A1.81,1.81,0,0,1,319.78,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1277,6 +1279,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1299,14 +1302,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var WashingProcessWidgetComponent = (function (_super) {
     __extends(WashingProcessWidgetComponent, _super);
-    function WashingProcessWidgetComponent(dialog) {
+    function WashingProcessWidgetComponent(dialog, router) {
         var _this = _super.call(this, dialog) || this;
         _this.dialog = dialog;
+        _this.router = router;
         return _this;
     }
     WashingProcessWidgetComponent.prototype.ngOnInit = function () {
+    };
+    WashingProcessWidgetComponent.prototype.jump = function () {
+        if (this.data.active) {
+            this.router.navigateByUrl('PCS-MI/wi');
+        }
     };
     return WashingProcessWidgetComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
@@ -1320,10 +1330,10 @@ WashingProcessWidgetComponent = __decorate([
         template: __webpack_require__("./src/app/landing-page/washing-process-widget/washing-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/washing-process-widget/washing-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], WashingProcessWidgetComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=washing-process-widget.component.js.map
 
 /***/ }),
