@@ -105,7 +105,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */],
             __WEBPACK_IMPORTED_MODULE_5__wi_page_wi_page_module__["a" /* WiPageModule */],
             __WEBPACK_IMPORTED_MODULE_4__landing_page_landing_page_module__["a" /* LandingPageModule */],
             __WEBPACK_IMPORTED_MODULE_6__sewing_page_sewing_page_module__["a" /* SewingPageModule */],
@@ -827,7 +827,7 @@ LandingPageModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_5__shared_shared_module__["a" /* SharedModule */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(routes),
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(routes),
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__home_view_home_view_component__["a" /* HomeViewComponent */], __WEBPACK_IMPORTED_MODULE_3__order_search_order_search_component__["a" /* OrderSearchComponent */], __WEBPACK_IMPORTED_MODULE_6__sew_process_widget_sew_process_widget_component__["a" /* SewProcessWidgetComponent */],
@@ -1078,7 +1078,7 @@ var _a;
 /***/ "./src/app/landing-page/sew-process-widget/sew-process-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <a [href]=\"data.active?'PCS-MI/sewing':'PCS-MI/home#'\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-5 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-3, .cls-4 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-5 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">Sewing Info</text>\r\n      <path class=\"cls-3\"\r\n            d=\"M78.23,96.05a1.94,1.94,0,0,0,1.93-1.94V86.77a1.93,1.93,0,1,0-3.87,0v7.34a1.94,1.94,0,0,0,1.94,1.94Zm0,0\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M77.71,148.49h4.41V140a15,15,0,0,0,12-14.66v-8h38.69v0s12-.32,11.76,11.31l-10.19,38.07h66.4l-1.59-6.31L191.31,93.3V90.46a15,15,0,0,0-15-15H163.8a14.86,14.86,0,0,0-9.09,3.14l-64.55.87a14.86,14.86,0,0,0-11.06-5H76.32a15,15,0,0,0-15,15v35.83A14.93,14.93,0,0,0,75.19,140.2v19.17h2.51Z\"/>\r\n      <path class=\"cls-3\" d=\"M169.54,85.6A18.57,18.57,0,1,1,151,104.17,18.57,18.57,0,0,1,169.54,85.6Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,86.77a1.93,1.93,0,1,1,3.87,0v7.34a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,103a1.93,1.93,0,0,1,3.87,0v7.36a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-4\" d=\"M169.54,118.1a14.31,14.31,0,1,0-14.31-14.3,14.31,14.31,0,0,0,14.31,14.3Zm0,0\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M211.94,167.84H98.88a4.27,4.27,0,0,0-4-2.9H77.71v0H75.19v0H59.66a4.24,4.24,0,0,0-4,2.9H49.26a3.93,3.93,0,1,0,0,7.87H211.94a3.93,3.93,0,1,0,0-7.87Zm0,0\"/>\r\n      <line class=\"cls-3\" x1=\"77.46\" y1=\"66.42\" x2=\"77.46\" y2=\"74.38\"/>\r\n      <line class=\"cls-3\" x1=\"169.54\" y1=\"66.42\" x2=\"169.54\" y2=\"74.38\"/>\r\n      <path class=\"cls-5\"\r\n            d=\"M319.87,50.09,289.79,20a1.81,1.81,0,0,1,1.28-3.09h30.08A1.81,1.81,0,0,1,323,18.73V48.82A1.81,1.81,0,0,1,319.87,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
+module.exports = "<div [style.width.px]=\"data.width\"\r\n     [style.height.px]=\"data.height\" [style.opacity]=\"data.active?1:0.4\" class=\"card\">\r\n  <a (click)=\"jump()\" class=\"emi-svg-pic\">\r\n    <svg width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" id=\"图层_1\" data-name=\"图层 1\"\r\n         xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 340 291.08\">\r\n      <defs>\r\n        <style>.cls-1 {\r\n          fill: url(#未命名的渐变_9);\r\n        }\r\n\r\n        .cls-2 {\r\n          font-size: 35.76px;\r\n          font-family: SegoeUI, Segoe UI;\r\n        }\r\n\r\n        .cls-2, .cls-5 {\r\n          fill: #fff;\r\n        }\r\n\r\n        .cls-3 {\r\n          fill: none;\r\n        }\r\n\r\n        .cls-3, .cls-4 {\r\n          stroke: #fff;\r\n          stroke-linecap: round;\r\n          stroke-linejoin: round;\r\n          stroke-width: 2px;\r\n        }\r\n\r\n        .cls-4 {\r\n          fill: #68ddd5;\r\n        }\r\n\r\n        .cls-5 {\r\n          opacity: 0.2;\r\n        }</style>\r\n        <linearGradient id=\"未命名的渐变_9\" x1=\"13.69\" y1=\"-7.85\" x2=\"326.31\" y2=\"304.77\" gradientUnits=\"userSpaceOnUse\">\r\n          <stop offset=\"0\" stop-color=\"#68ead0\"/>\r\n          <stop offset=\"1\" stop-color=\"#4ca2ef\"/>\r\n        </linearGradient>\r\n      </defs>\r\n      <title>eMI</title>\r\n      <path class=\"cls-1\" d=\"M330.07,0H9.93A10,10,0,0,0,0,9.93V291.08H340V9.93A10,10,0,0,0,330.07,0Z\"/>\r\n      <text class=\"cls-2\" transform=\"translate(45.57 246.21)\">Sewing Info</text>\r\n      <path class=\"cls-3\"\r\n            d=\"M78.23,96.05a1.94,1.94,0,0,0,1.93-1.94V86.77a1.93,1.93,0,1,0-3.87,0v7.34a1.94,1.94,0,0,0,1.94,1.94Zm0,0\"/>\r\n      <path class=\"cls-3\"\r\n            d=\"M77.71,148.49h4.41V140a15,15,0,0,0,12-14.66v-8h38.69v0s12-.32,11.76,11.31l-10.19,38.07h66.4l-1.59-6.31L191.31,93.3V90.46a15,15,0,0,0-15-15H163.8a14.86,14.86,0,0,0-9.09,3.14l-64.55.87a14.86,14.86,0,0,0-11.06-5H76.32a15,15,0,0,0-15,15v35.83A14.93,14.93,0,0,0,75.19,140.2v19.17h2.51Z\"/>\r\n      <path class=\"cls-3\" d=\"M169.54,85.6A18.57,18.57,0,1,1,151,104.17,18.57,18.57,0,0,1,169.54,85.6Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,86.77a1.93,1.93,0,1,1,3.87,0v7.34a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-3\" d=\"M76.29,103a1.93,1.93,0,0,1,3.87,0v7.36a1.93,1.93,0,1,1-3.87,0Z\"/>\r\n      <path class=\"cls-4\" d=\"M169.54,118.1a14.31,14.31,0,1,0-14.31-14.3,14.31,14.31,0,0,0,14.31,14.3Zm0,0\"/>\r\n      <path class=\"cls-4\"\r\n            d=\"M211.94,167.84H98.88a4.27,4.27,0,0,0-4-2.9H77.71v0H75.19v0H59.66a4.24,4.24,0,0,0-4,2.9H49.26a3.93,3.93,0,1,0,0,7.87H211.94a3.93,3.93,0,1,0,0-7.87Zm0,0\"/>\r\n      <line class=\"cls-3\" x1=\"77.46\" y1=\"66.42\" x2=\"77.46\" y2=\"74.38\"/>\r\n      <line class=\"cls-3\" x1=\"169.54\" y1=\"66.42\" x2=\"169.54\" y2=\"74.38\"/>\r\n      <path class=\"cls-5\"\r\n            d=\"M319.87,50.09,289.79,20a1.81,1.81,0,0,1,1.28-3.09h30.08A1.81,1.81,0,0,1,323,18.73V48.82A1.81,1.81,0,0,1,319.87,50.09Z\"/>\r\n    </svg>\r\n  </a>\r\n  <app-info-widget [data]=\"data\"></app-info-widget>\r\n  <div class=\"card-footer text-muted text-center\" (click)=\"showMore()\">Show more</div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1108,6 +1108,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__base_widget__ = __webpack_require__("./src/app/landing-page/base-widget.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("./node_modules/@angular/material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -1130,14 +1131,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SewProcessWidgetComponent = (function (_super) {
     __extends(SewProcessWidgetComponent, _super);
-    function SewProcessWidgetComponent(dialog) {
+    function SewProcessWidgetComponent(dialog, router) {
         var _this = _super.call(this, dialog) || this;
         _this.dialog = dialog;
+        _this.router = router;
         return _this;
     }
     SewProcessWidgetComponent.prototype.ngOnInit = function () {
+    };
+    SewProcessWidgetComponent.prototype.jump = function () {
+        this.router.navigateByUrl('PCS-MI/sewing');
     };
     return SewProcessWidgetComponent;
 }(__WEBPACK_IMPORTED_MODULE_1__base_widget__["a" /* BaseWidget */]));
@@ -1151,10 +1157,10 @@ SewProcessWidgetComponent = __decorate([
         template: __webpack_require__("./src/app/landing-page/sew-process-widget/sew-process-widget.component.html"),
         styles: [__webpack_require__("./src/app/landing-page/sew-process-widget/sew-process-widget.component.sass")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MdDialog */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* Router */]) === "function" && _b || Object])
 ], SewProcessWidgetComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=sew-process-widget.component.js.map
 
 /***/ }),
@@ -1477,7 +1483,7 @@ SewingPageModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forRoot(routes),
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes),
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_18__sewing_info_widget_sewing_info_component__["a" /* SewingInfoComponent */],
@@ -3207,7 +3213,7 @@ WiPageModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_common__["b" /* CommonModule */],
             __WEBPACK_IMPORTED_MODULE_4__shared_shared_module__["a" /* SharedModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot(routes),
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* RouterModule */].forRoot(routes),
         ],
         declarations: [__WEBPACK_IMPORTED_MODULE_2__garment_neck_tap_app_garment_neck_tap_app_component__["a" /* GarmentNeckTapAppComponent */], __WEBPACK_IMPORTED_MODULE_5__mi_text_info_widget_mi_text_info_widget_component__["a" /* MiTextInfoWidgetComponent */], __WEBPACK_IMPORTED_MODULE_6__mi_attachment_widget_mi_attachment_widget_component__["a" /* MiAttachmentWidgetComponent */], __WEBPACK_IMPORTED_MODULE_7__garment_neck_tap_wi_widget_garment_neck_tap_wi_widget_component__["a" /* GarmentNeckTapWiWidgetComponent */]]
     })
