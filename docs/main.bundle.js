@@ -3557,7 +3557,7 @@ var MiAttachmentService = (function () {
             // { tag : 'image', path : 'assets/img/wi/Fabric.png', desc : 'Fabric'},
             // { tag : 'image', path : 'assets/img/wi/SOP.jpg', desc : 'SOP'},
             // { tag : 'video', path : 'assets/video/1.mp4', desc : 'Broken yarn due to certain fabrication'},
-            { tag: 'video', path: 'assets/video/2.mp4', desc: 'Machine speed adjustment may need' },
+            { tag: 'video', path: 'PCS-MI/assets/video/2.mp4', desc: 'Machine speed adjustment may need' },
         ]);
     };
     return MiAttachmentService;
