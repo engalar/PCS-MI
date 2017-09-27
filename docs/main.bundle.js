@@ -1128,14 +1128,6 @@ var LandingService = (function () {
                     active: true,
                     infos: [
                         {
-                            type: 'alert',
-                            desc: 'Alert : Puckering issues on White color'
-                        },
-                        {
-                            type: 'alert',
-                            desc: 'Action : Remove the “Mappi” process for white 100% cotton dobby fabric'
-                        },
-                        {
                             type: 'normal',
                             desc: 'This is WRINKLE FREE ORDER (NON TAPE) order !! '
                         },
@@ -1149,6 +1141,14 @@ var LandingService = (function () {
                     processType: 5,
                     active: true,
                     infos: [
+                        {
+                            type: 'alert',
+                            desc: 'Alert : Puckering issues on White color'
+                        },
+                        {
+                            type: 'alert',
+                            desc: 'Action : Remove the “Mappi” process for white 100% cotton dobby fabric'
+                        },
                         {
                             type: 'normal',
                             desc: 'This is "TAILORED PROGRAM" - New NOS Program starts from 2017, used same Trims as Regular order !! REPEAT OF S17U00549 !!'
@@ -2986,7 +2986,7 @@ GarmentSleevesWidgetComponent = __decorate([
 /***/ "./src/app/sewing-page/sewing-widget.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3 style=\"margin-left:50px;margin-bottom:5px;margin-top:5px;font-size: medium;font-weight: 100\">Sewing</h3>\r\n\r\n<div style=\"height:650px;width:100%;background-color: whitesmoke\">\r\n<div style=\"float:left;z-index: 1 ; border:1px darkgrey; border-radius: 5px\">\r\n\r\n  <div style=\"background-color:white;margin:50px;margin-top:30px;margin-right:10px;border: 1px black;border-radius:5px;height:570px;width:550px;display:block\">\r\n  <button class=\"btn btn-outline-info\" style=\"border:none; margin:30px;margin-bottom:0px;pointer-events: auto;\"\r\n          (click)=\" showHide = !showHide\"><img style=\"height:40px\" src=\"http://www.newdesignfile.com/postpic/2015/07/change-management-icon_356734.png\"/></button>\r\n  </div>\r\n\r\n<div  class=\"svg\" *ngIf=\"!showHide\">\r\n  <app-garment-part  *ngFor=\"let part of garmentPartsFront\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n\r\n<div class=\"svg\" *ngIf=\"showHide\">\r\n  <app-garment-part *ngFor=\"let part of garmentPartsBack\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n</div>\r\n\r\n\r\n<div style=\"float:left;width:750px;z-index: 2\">\r\n<!-- Info Box Session-->\r\n  <div class=\"info\" style=\"margin:10px;margin-top:30px\"><app-sewing-info></app-sewing-info></div>\r\n\r\n</div>\r\n\r\n</div>\r\n"
+module.exports = "<div style=\"height: 40px\">\r\n  <button type=\"button\" class=\"btn btn-outline-info float-left mr-5\" (click)=\"jump()\" >POC</button>\r\n  <h3 style=\"margin-left:50px;margin-bottom:0px;margin-top:5px;font-weight: 100; alignment: center\">Sewing</h3>\r\n</div>\r\n\r\n<div style=\"height:650px;width:100%;background-color: whitesmoke\">\r\n<div style=\"float:left;z-index: 1 ; border:1px darkgrey; border-radius: 5px\">\r\n\r\n  <div style=\"background-color:white;margin:50px;margin-top:30px;margin-right:10px;border: 1px black;border-radius:5px;height:570px;width:550px;display:block\">\r\n  <button class=\"btn btn-outline-info\" style=\"border:none; margin:30px;margin-bottom:0px;pointer-events: auto;\"\r\n          (click)=\" showHide = !showHide\"><img style=\"height:40px\" src=\"http://www.newdesignfile.com/postpic/2015/07/change-management-icon_356734.png\"/></button>\r\n  </div>\r\n\r\n<div  class=\"svg\" *ngIf=\"!showHide\">\r\n  <app-garment-part  *ngFor=\"let part of garmentPartsFront\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n\r\n<div class=\"svg\" *ngIf=\"showHide\">\r\n  <app-garment-part *ngFor=\"let part of garmentPartsBack\" type=\"{{part}}\"></app-garment-part>\r\n</div>\r\n</div>\r\n\r\n\r\n<div style=\"float:left;width:550px;z-index: 2\">\r\n<!-- Info Box Session-->\r\n  <div class=\"info\" style=\"margin:10px;margin-top:30px\"><app-sewing-info></app-sewing-info></div>\r\n\r\n</div>\r\n\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2996,15 +2996,21 @@ module.exports = "<h3 style=\"margin-left:50px;margin-bottom:5px;margin-top:5px;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SewingWidgetComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var SewingWidgetComponent = (function () {
-    function SewingWidgetComponent() {
+    function SewingWidgetComponent(router) {
+        this.router = router;
         this.garmentPartsFront = [
             'collar', 'shoulder',
             'frontplacket', 'leftfrontpanel', 'rightfrontpanel',
@@ -3016,6 +3022,9 @@ var SewingWidgetComponent = (function () {
     }
     SewingWidgetComponent.prototype.ngOnInit = function () {
     };
+    SewingWidgetComponent.prototype.jump = function () {
+        this.router.navigateByUrl('PCS-MI/home');
+    };
     return SewingWidgetComponent;
 }());
 SewingWidgetComponent = __decorate([
@@ -3023,9 +3032,11 @@ SewingWidgetComponent = __decorate([
         selector: 'app-sewing',
         template: __webpack_require__("./src/app/sewing-page/sewing-widget.component.html"),
         styles: [__webpack_require__("./src/app/sewing-page/sewing-info-widget.sass")],
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
 ], SewingWidgetComponent);
 
+var _a;
 //# sourceMappingURL=sewing-widget.component.js.map
 
 /***/ }),
@@ -3284,7 +3295,7 @@ var _a;
 /***/ "./src/app/wi-page/garment-neck-tap-app/garment-neck-tap-app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\" >\r\n      <div>\r\n        <div class=\"card-block\">\r\n          <h3 align=\"center\">Collar WI Details </h3>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <app-garment-neck-tap-wi-widget></app-garment-neck-tap-wi-widget>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <app-mi-text-info-widget></app-mi-text-info-widget>\r\n      <app-mi-attachment-widget></app-mi-attachment-widget>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container-fluid\">\r\n  <div class=\"row\" style=\"width: 100%;display: block;z-index: 9999\">\r\n    <button type=\"button\" class=\"btn btn-outline-info\" (click)=\"jump()\">POC</button>\r\n  </div>\r\n  <div class=\"row\">\r\n    <div class=\"col-md-6\" >\r\n      <div>\r\n        <div class=\"card-block\">\r\n          <h3 align=\"center\">Collar WI Details </h3>\r\n        </div>\r\n        <div class=\"card-block\">\r\n          <app-garment-neck-tap-wi-widget></app-garment-neck-tap-wi-widget>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <div class=\"col-md-6\">\r\n      <app-mi-text-info-widget></app-mi-text-info-widget>\r\n      <app-mi-attachment-widget></app-mi-attachment-widget>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -3312,6 +3323,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GarmentNeckTapAppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/@angular/router.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3322,10 +3334,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var GarmentNeckTapAppComponent = (function () {
-    function GarmentNeckTapAppComponent() {
+    function GarmentNeckTapAppComponent(router) {
+        this.router = router;
     }
     GarmentNeckTapAppComponent.prototype.ngOnInit = function () {
+    };
+    GarmentNeckTapAppComponent.prototype.jump = function () {
+        this.router.navigateByUrl('PCS-MI/home');
     };
     return GarmentNeckTapAppComponent;
 }());
@@ -3335,9 +3352,10 @@ GarmentNeckTapAppComponent = __decorate([
         template: __webpack_require__("./src/app/wi-page/garment-neck-tap-app/garment-neck-tap-app.component.html"),
         styles: [__webpack_require__("./src/app/wi-page/garment-neck-tap-app/garment-neck-tap-app.component.sass")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* Router */]) === "function" && _a || Object])
 ], GarmentNeckTapAppComponent);
 
+var _a;
 //# sourceMappingURL=garment-neck-tap-app.component.js.map
 
 /***/ }),
